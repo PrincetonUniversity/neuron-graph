@@ -27,7 +27,22 @@ let populateConnections = async (dbConn, connectionsJSON) => {
   let connectionCounter = 0;
   connectionsJSON.forEach(connection => {
     let { datasetId, pre, post, typ, syn, ids, pre_tid, post_tid } = connection;
-    let type = typ === 0 ? 'chemical' : 'electrical';
+    
+    switch(typ) {
+      case 0:
+        type = 'chemical';
+        break;
+      case 2:
+        type = 'electrical';
+        break;
+      case 4:
+        type = 'functional';
+        break;
+      default:
+        type = 'undefined';
+        break;
+    } 
+
     let synapseCount = syn.length;
 
     // Skip gap junctions already counted in the reverse direction.
