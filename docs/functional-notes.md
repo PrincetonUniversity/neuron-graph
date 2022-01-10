@@ -9,7 +9,7 @@ mock data or updating one, this is how
 
 example
 
-```scripts/functional_pairs2json.sh < functional/mockpairs_20210630.tsv > src/server/populate-db/raw-data/connections/mockpairs_20210630.json```
+`scripts/functional_pairs2json.sh < functional/mockpairs_20210630.tsv > src/server/populate-db/raw-data/connections/mockpairs_20210630.json`
 
 Note that functional_pairs2json.sh is a simplistic bash script that runs very slowly and is only a reference implementation.
 
