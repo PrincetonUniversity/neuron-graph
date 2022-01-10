@@ -231,5 +231,13 @@
             "axisTransform": 1
          }
       ]
+   },
+   {
+      "id":"mockpairs_20210630",
+      "name":"Liefer lab, 2021, Mock pairwise data generated June 30 2021",
+      "type":"head",
+      "time":50,
+      "visualTime":50,
+      "description":"Mock data"
    }
  ]
