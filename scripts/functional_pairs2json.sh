@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# example usage:
+# example usage: scripts/functional_pairs2json.sh < functional/mockpairs_20210630.tsv > src/server/populate-db/raw-data/connections/mockpairs_20210630.json
 #
 # 
 
