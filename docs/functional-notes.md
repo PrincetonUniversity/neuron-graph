@@ -17,5 +17,5 @@ Note that functional_pairs2json.sh is a simplistic bash script that runs very sl
 
 2a. when is first of a new typ need to update the switch statement starting at line 30 of "populate-connections.js" in the same connections folder
 
-3. run ```npm run populate-database```
+3. run `npm run populate-database`
 
