@@ -7,7 +7,7 @@ mock data or updating one, this is how
 
 1. reformat generated "pairwise.tsv" plaintext two-column format to json via scripts/functional_pairs2json.sh by redirecting stdin and stdout, writing result in the location suggested by adding_new_data, src/server/populate-db/raw-data/connections/<mockpairs_DATE.json> where DATE is of form YYYYMMDD
 
-example
+### Example
 
 `scripts/functional_pairs2json.sh < functional/mockpairs_20210630.tsv > src/server/populate-db/raw-data/connections/mockpairs_20210630.json`
 
