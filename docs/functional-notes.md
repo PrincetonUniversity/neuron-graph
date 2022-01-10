@@ -5,7 +5,7 @@ Note that these steps result in a new json file in the file hierarchy which
 when checked in, obviates the need to do the steps! But if importing new
 mock data or updating one, this is how
 
-1. reformat generated "pairwise.tsv" plaintext two-column format to json via scripts/functional_pairs2json.sh by redirecting stdin and stdout, writing result inthe location suggested by adding_new_data, src/server/populate-db/raw-data/connections/<mockpairs_DATE.json> where DATE is of form YYYYMMDD
+1. reformat generated "pairwise.tsv" plaintext two-column format to json via scripts/functional_pairs2json.sh by redirecting stdin and stdout, writing result in the location suggested by adding_new_data, src/server/populate-db/raw-data/connections/<mockpairs_DATE.json> where DATE is of form YYYYMMDD
 
 example
 
