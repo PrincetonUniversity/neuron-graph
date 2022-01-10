@@ -234,10 +234,10 @@
    },
    {
       "id":"mockpairs_20210630",
-      "name":"Mock pairwise data generated June 30 2021",
+      "name":"Liefer lab, 2021, Mock pairwise data generated June 30 2021",
       "type":"head",
       "time":50,
       "visualTime":50,
-      "description":"Mock pairwise data adult legacy format <i>Liefer lab, 2021</i>"
+      "description":"Mock data"
    }
  ]
