@@ -7,7 +7,7 @@
     "url": "git+ssh://git@github.com:dwitvliet/NemaNode.git"
   },
   "engines": {
-    "node": ">=11.15.0",
+    "node": ">=11.15.0 <16.0.0",
     "npm": ">=6.7.0"
   },
   "browserslist": "> 0.1%, last 5 versions, not dead",

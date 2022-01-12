@@ -27,8 +27,9 @@ let populateConnections = async (dbConn, connectionsJSON) => {
   let connectionCounter = 0;
   connectionsJSON.forEach(connection => {
     let { datasetId, pre, post, typ, syn, ids, pre_tid, post_tid } = connection;
-    
-    switch(typ) {
+   
+    let type;
+    switch (typ) {
       case 0:
         type = 'chemical';
         break;
