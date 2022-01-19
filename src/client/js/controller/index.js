@@ -47,7 +47,7 @@ let bindSearchbarEvents = ({ model, view }) => {
       model.clear();
     }
     model.updateNetwork();
-  })
+  });
 
   view.options.on('closeSettings', () => {
     if (view.searchbar.getInputs().length === 0) {

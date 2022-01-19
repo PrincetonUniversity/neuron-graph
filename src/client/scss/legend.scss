@@ -78,6 +78,9 @@
       &#edge-typ2 {
         @extend .icon-gapjunction;
       }
+      &#edge-typ4 {
+        @extend .icon-functional;
+      }
     }
   }
 }
@@ -98,6 +101,9 @@
 }
 #edge-typ2::before {
   color: map-get($edge-colors, typ2);
+}
+#edge-typ4::before {
+  color: map-get($edge-colors, typ4);
 }
 #edge-juvenile::before {
   color: map-get($edge-colors, l1);

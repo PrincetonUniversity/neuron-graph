@@ -733,7 +733,15 @@ class GraphView extends View2 {
         if (id == 'edge-typ0') {
           row += 0.5;
         }
-        let synapses = id == 'edge-typ0' ? [1, 10, 50] : [3];
+        let synapses;
+        if (id == 'edge-typ0') {
+          synapses = [1, 10, 50];
+        } else if (id == 'edge-typ2') {
+          synapses = [3];
+        } else if (id == 'edge-typ4') {
+          // functional, not sure what this number means.
+          synapses = [3];
+        }
 
         let noEdgesWithAnnotations = (
           cy.edges('.mature').length === 0 &&
@@ -763,6 +771,10 @@ class GraphView extends View2 {
           }
           if (id == 'edge-typ2') {
             edge.type = 2;
+          }
+          // functional, guessing.
+          if (id == 'edge-typ4') {
+            edge.type = 4;
           }
           if (id == 'edge-not-classified') {
             edge.classes = ' not-classified';
@@ -828,6 +840,11 @@ class GraphView extends View2 {
         if (id == 'edge-typ2') {
           row += 0.5;
         }
+        // functional, guessing.
+        if (id == 'edge-typ4') {
+          row += 0.5;
+        }
+
       }
     });
 
@@ -941,11 +958,11 @@ class GraphView extends View2 {
       let hasElectrical = edgesElectrical.length > 0;
       let isChemTarget = edgesChemical.sources().contains(innerNodes);
       let isChemSource = edgesChemical.targets().contains(innerNodes);
-      // let isFuncTarget = edgesFunctional.sources().contains(innerNodes);
-      // let isFuncSource = edgesFunctional.targets().contains(innerNodes);
+      let isFuncTarget = edgesFunctional.sources().contains(innerNodes);
+      let isFuncSource = edgesFunctional.targets().contains(innerNodes);
 
-      let isTarget = isChemTarget; // || isFuncTarget;
-      let isSource = isChemSource; // || isFuncSource;
+      let isTarget = isChemTarget || isFuncTarget;
+      let isSource = isChemSource || isFuncSource;
 
       let idx = 0;
 
