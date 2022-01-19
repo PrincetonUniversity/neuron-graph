@@ -96,6 +96,7 @@ class Model extends EventEmitter {
         datasetIds: this.datasets,
         thresholdChemical: this.thresholdChemical,
         thresholdElectrical: this.thresholdElectrical,
+        thresholdFunctional: this.thresholdFunctional,
         includeNeighboringCells: this.showLinked,
         includeAnnotations: true
       })
@@ -131,6 +132,7 @@ class Model extends EventEmitter {
       layout: this.layout,
       thresholdChemical: this.thresholdChemical,
       thresholdElectrical: this.thresholdElectrical,
+      thresholdFunctional: this.thresholdFunctional,
       showLinked: this.showLinked,
       showIndividual: this.showIndividual,
       showEdgeLabel: this.showEdgeLabel,

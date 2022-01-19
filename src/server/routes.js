@@ -41,6 +41,7 @@ router.get('/api/connections', (req, res) => {
     datasetType,
     thresholdChemical,
     thresholdElectrical,
+    thresholdFunctional,
     includeNeighboringCells,
     includeAnnotations
   } = req.query;
@@ -51,6 +52,7 @@ router.get('/api/connections', (req, res) => {
     datasetType,
     thresholdChemical,
     thresholdElectrical,
+    thresholdFunctional,
     includeNeighboringCells,
     includeAnnotations
   };

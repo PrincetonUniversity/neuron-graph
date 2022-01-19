@@ -37,6 +37,7 @@ let getTourSteps = view => {
           layout: 'concentric',
           thresholdChemical: 3,
           thresholdElectrical: 2,
+          thresholdFunctional: 2,
           showLinked: true,
           showIndividual: false,
           showEdgeLabel: false,
@@ -261,7 +262,8 @@ let getTourSteps = view => {
         title: 'Hide weak connections',
         body: [
           'Filter out weak connections that may reflect individual variability or artefacts of the annotation process.',
-          'We suggest setting the threshold to at least 3-5 chemical synapses and 2 gap junctions for cell classes.'
+          'We suggest setting the threshold for cell classes to at least 3-5 chemical synapses, 2 gap junctions,',
+          'and, for now, 2 functional connections.'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('hide-edges');

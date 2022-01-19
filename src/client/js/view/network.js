@@ -927,15 +927,26 @@ class GraphView extends View2 {
     // 4: source + electrical synapse
     // 5: source
     // 6: source + target
+   
+    // functional addition: can be either functional or chemical src, target
+    // which might not make any sense. Will see
+
     let outerNodes = cy.nodes().not('.searchedfor');
     let edgeTypes = {};
     outerNodes.forEach(node => {
       let edges = node.edgesWith(innerNodes);
       let edgesElectrical = edges.filter('[type=2]');
       let edgesChemical = edges.filter('[type=0]');
+      let edgesFunctional = edges.filter('[type=4]');
       let hasElectrical = edgesElectrical.length > 0;
-      let isTarget = edgesChemical.sources().contains(innerNodes);
-      let isSource = edgesChemical.targets().contains(innerNodes);
+      let isChemTarget = edgesChemical.sources().contains(innerNodes);
+      let isChemSource = edgesChemical.targets().contains(innerNodes);
+      // let isFuncTarget = edgesFunctional.sources().contains(innerNodes);
+      // let isFuncSource = edgesFunctional.targets().contains(innerNodes);
+
+      let isTarget = isChemTarget; // || isFuncTarget;
+      let isSource = isChemSource; // || isFuncSource;
+
       let idx = 0;
 
       if (hasElectrical) {

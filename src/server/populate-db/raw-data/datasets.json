@@ -1,5 +1,13 @@
 [
    {
+      "id":"liefer_2021_mock",
+      "name":"Liefer et al., 2021, Dataset 0 (L1)",
+      "type":"head",
+      "time":50,
+      "visualTime":50,
+      "description":"Mock functional data for Liefer lab, 2021"
+   },
+   {
       "id": "white_1986_whole",
       "name": "White et al., 1986 compilation (adult)",
       "type": "complete",
@@ -231,13 +239,5 @@
             "axisTransform": 1
          }
       ]
-   },
-   {
-      "id":"mockpairs_20210630",
-      "name":"Liefer lab, 2021, Mock data 2021-06-30",
-      "type":"head",
-      "time":50,
-      "visualTime":50,
-      "description":"Mock data"
    }
  ]

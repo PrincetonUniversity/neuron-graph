@@ -209,6 +209,7 @@ ModelPrototype.convertModelToCytoscape = function(
 ) {
   const PRE = 0;
   const GJ = 2;
+  const FC = 4;
 
   let {
     input: inputs,
@@ -295,9 +296,8 @@ ModelPrototype.convertModelToCytoscape = function(
         if (!groupOpen) {
           let groupEdges = {
             chemical: flatten(groupMembers.map(gm => G.edges('chemical', gm))), // for some reason we need this as a triple nested array
-            electrical: flatten(
-              groupMembers.map(gm => G.edges('electrical', gm))
-            ) // for some reason we need this as a triple nested array
+            electrical: flatten(groupMembers.map(gm => G.edges('electrical', gm))),
+            functional: flatten(groupMembers.map(gm => G.edges('functional', gm)))
           };
 
           groupMembers.forEach(member => network.removeNode(member));
@@ -377,6 +377,11 @@ ModelPrototype.convertModelToCytoscape = function(
 
   G.edges('electrical').forEach(e => {
     let edge = this.makeCytoscapeEdge(e[0], e[1], GJ, e[2], modelState);
+    edges[edge['data']['id']] = edge;
+  });
+
+  G.edges('functional').forEach(e => {
+    let edge = this.makeCytoscapeEdge(e[0], e[1], FC, e[2], modelState);
     edges[edge['data']['id']] = edge;
   });
 
