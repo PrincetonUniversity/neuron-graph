@@ -47,6 +47,7 @@ let cytoscapeColors = {
   coloursEdge: {
     typ0: 'black',
     typ2: '#666666',
+    typ4: '#9900CC',
     juvenile: '#2A9EFE',
     mature: '#FF0000',
     'not-classified': '#228B22',
@@ -313,6 +314,17 @@ let cystyle = {
         'line-color': cytoscapeColors.coloursEdge['typ2'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ2'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ2'],
+        'segment-distances': '0 -8 8 -8 8 0'
+      }
+    },
+    {
+      selector: 'edge[type = 4]',
+      css: {
+        'curve-style': 'segments',
+        'target-arrow-shape': 'triangle',
+        'line-color': cytoscapeColors.coloursEdge['typ4'],
+        'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
+        'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'segment-distances': '0 -8 8 -8 8 0'
       }
     },
