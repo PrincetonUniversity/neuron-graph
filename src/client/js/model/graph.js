@@ -44,13 +44,11 @@ class Graph {
     });
     adj.delete(n);
     fdst.get(n).forEach(function(_, u) {
-      fdst.get(u).delete(n);
-      fdst.get(n).delete(u);
+      fsrc.get(u).delete(n);
     });
     fdst.delete(n);
     fsrc.get(n).forEach(function(_, u) {
-      fsrc.get(u).delete(n);
-      fsrc.get(n).delete(u);
+      fdst.get(u).delete(n);
     });
     fsrc.delete(n);
   }
