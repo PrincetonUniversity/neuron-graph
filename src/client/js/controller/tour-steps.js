@@ -229,7 +229,8 @@ let getTourSteps = view => {
         body: [
           'Change the datasets to explore variability and development.',
           'We suggest using the dataset with the most samples whenever possible.',
-          'Please open <span class="a smallhelp">help</span> for further information on the different datasets.'
+          'Please open <span class="a smallhelp">help</span> for further information on the ',
+          'different datasets.'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('set-database');

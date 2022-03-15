@@ -13,6 +13,12 @@ class Graph {
   }
 
   addNode(n, attr = {}) {
+    // * `node` - I believe a list of nodes in the graph
+    // * `outp` - data structure for one direction of a chemical synapse
+    // * `inp` - data structure for the other direction of a chemical synapse
+    // * `adj` - data structure for gap junction connections
+    // * `fdst` - data structure for one direction of a functional connection
+    // * `fsrc` - data structure for the other direction of a functional connection
     const { node, outp, inp, adj, fdst, fsrc } = this;
     if (!node.has(n)) {
       node.set(n, attr);

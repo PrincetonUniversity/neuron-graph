@@ -207,9 +207,9 @@ ModelPrototype.convertModelToCytoscape = function(
   modelState,
   runLayout
 ) {
-  const PRE = 0;
-  const GJ = 2;
-  const FC = 4;
+  const PRE = 0; // Chemical synapse type
+  const GJ = 2; // Gap junction type
+  const FC = 4; // Functional connection type
 
   let {
     input: inputs,
@@ -295,7 +295,8 @@ ModelPrototype.convertModelToCytoscape = function(
 
         if (!groupOpen) {
           let groupEdges = {
-            chemical: flatten(groupMembers.map(gm => G.edges('chemical', gm))), // for some reason we need this as a triple nested array
+            // for some reason we need this as a triple nested array
+            chemical: flatten(groupMembers.map(gm => G.edges('chemical', gm))),
             electrical: flatten(groupMembers.map(gm => G.edges('electrical', gm))),
             functional: flatten(groupMembers.map(gm => G.edges('functional', gm)))
           };
