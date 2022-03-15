@@ -26,7 +26,7 @@ let loadConnectionData = () => {
     const filepath = path.resolve(CONNECTIONS_DATA_PATH, filename);
     const name = path.parse(filename).name;
     const datasetId = name.split('.')[0];
-
+    console.log("Parsing file: [" + filepath + "].")
     let datasetConnectionsJSON = JSON.parse(fs.readFileSync(filepath));
 
     datasetConnectionsJSON.forEach(c => {

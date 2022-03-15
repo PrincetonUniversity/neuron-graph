@@ -140,7 +140,10 @@ $(document).ready(() => {
     .catch(e => {
       if (!DEBUG) {
         alert('Cannot load data!\nPlease contact us if the problem persists!');
+      } else {
+        console.log(e);
       }
-      throw e;
+      // Throwing breaks the promise.  We must respond.
+      // throw e;
     });
 });
