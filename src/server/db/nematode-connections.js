@@ -122,7 +122,7 @@ let queryNematodeConnections = async (connection, opts) => {
   let thresholdFunctional = 
     !isNaN(parseInt(opts.thresholdFunctional)) 
       ? opts.thresholdFunctional 
-      : 3;
+      : 2;
   let includeNeighboringCells =
     typeof opts.includeNeighboringCells === 'string'
       ? opts.includeNeighboringCells === 'true'

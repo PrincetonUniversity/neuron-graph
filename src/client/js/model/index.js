@@ -28,7 +28,9 @@ class Model extends EventEmitter {
     this.joined = [];
 
     this.groups = {};
-    this.parent = {}; // should only be used by the groups module, no other module should not access this directly
+    // parent should only be used by the groups module
+    // no other module should access parent directly
+    this.parent = {};
 
     this.positions = {};
     this.lockedPositions = [];

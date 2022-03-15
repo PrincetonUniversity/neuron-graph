@@ -229,7 +229,8 @@ let getTourSteps = view => {
         body: [
           'Change the datasets to explore variability and development.',
           'We suggest using the dataset with the most samples whenever possible.',
-          'Please open <span class="a smallhelp">help</span> for further information on the different datasets.'
+          'Please open <span class="a smallhelp">help</span> for further information on the ',
+          'different datasets.'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('set-database');
@@ -262,7 +263,7 @@ let getTourSteps = view => {
         // TODO: Update the text to reflect the threshold value for functional connections
         title: 'Hide weak connections',
         body: [
-          'Filter out weak connections that may reflect individual variability or artefacts of ',
+          'Filter out weak connections that may reflect individual variability or artifacts of ',
           'the annotation process. We suggest setting the threshold for cell classes to at least ',
           '3-5 chemical synapses, 2 gap junctions, and 2 functional "connections".'
         ],
