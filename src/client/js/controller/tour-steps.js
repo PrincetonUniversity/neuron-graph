@@ -263,7 +263,7 @@ let getTourSteps = view => {
         // TODO: Update the text to reflect the threshold value for functional connections
         title: 'Hide weak connections',
         body: [
-          'Filter out weak connections that may reflect individual variability or artefacts of ',
+          'Filter out weak connections that may reflect individual variability or artifacts of ',
           'the annotation process. We suggest setting the threshold for cell classes to at least ',
           '3-5 chemical synapses, 2 gap junctions, and 2 functional "connections".'
         ],
