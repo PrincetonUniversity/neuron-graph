@@ -26,7 +26,7 @@ class Tour {
     this._isRunning = true;
     this.view.graph.disableAnimations();
     // Freeze state before starting tour, so the current network isn't lost.
-    this.frozenState = this.controller.getState(); //not allowed to call parent. This has to be redone (TODO)
+    this.frozenState = this.controller.getState(); //not allowed to call parent, need to fix (TODO)
     this.state = {};
     this.tourNumber = 0;
     this.stepNumber = 0;
@@ -49,7 +49,7 @@ class Tour {
     }
     // Load frozen state on exit if network isn't empty.
     if (this.frozenState['input'].length > 0) {
-      this.controller.setState(this.frozenState); //not allowed to call parent. This has to be redone (TODO)
+      this.controller.setState(this.frozenState); //not allowed to call parent, need to fix (TODO)
     } else {
       this.view.graph.removeSelection();
     }
@@ -90,7 +90,7 @@ class Tour {
           }
         }
 
-        this.controller.setState(this.state); //not allowed to call parent. this has to be redone (TODO)
+        this.controller.setState(this.state); //not allowed to call parent. need to fix (TODO)
       }
 
       return d;
@@ -109,7 +109,7 @@ class Tour {
 
         // Save current state to revert back to in case UI changes.
         if (!this.atFirstStep()) {
-          this.state = this.controller.getState(); //not allowed to call parent. This has to be redone (TODO)
+          this.state = this.controller.getState(); //not allowed to call parent. need to fix (TODO)
         }
       });
   }
