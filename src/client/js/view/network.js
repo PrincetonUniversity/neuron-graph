@@ -733,7 +733,15 @@ class GraphView extends View2 {
         if (id == 'edge-typ0') {
           row += 0.5;
         }
-        let synapses = id == 'edge-typ0' ? [1, 10, 50] : [3];
+        let synapses;
+        if (id == 'edge-typ0') {
+          synapses = [1, 10, 50];
+        } else if (id == 'edge-typ2') {
+          synapses = [3];
+        } else if (id == 'edge-typ4') {
+          // functional, not sure what this number means.
+          synapses = [3];
+        }
 
         let noEdgesWithAnnotations = (
           cy.edges('.mature').length === 0 &&
@@ -763,6 +771,10 @@ class GraphView extends View2 {
           }
           if (id == 'edge-typ2') {
             edge.type = 2;
+          }
+          // functional, guessing.
+          if (id == 'edge-typ4') {
+            edge.type = 4;
           }
           if (id == 'edge-not-classified') {
             edge.classes = ' not-classified';
@@ -828,6 +840,11 @@ class GraphView extends View2 {
         if (id == 'edge-typ2') {
           row += 0.5;
         }
+        // functional, guessing.
+        if (id == 'edge-typ4') {
+          row += 0.5;
+        }
+
       }
     });
 
@@ -927,15 +944,26 @@ class GraphView extends View2 {
     // 4: source + electrical synapse
     // 5: source
     // 6: source + target
+   
+    // functional addition: can be either functional or chemical src, target
+    // which might not make any sense. Will see
+
     let outerNodes = cy.nodes().not('.searchedfor');
     let edgeTypes = {};
     outerNodes.forEach(node => {
       let edges = node.edgesWith(innerNodes);
       let edgesElectrical = edges.filter('[type=2]');
       let edgesChemical = edges.filter('[type=0]');
+      let edgesFunctional = edges.filter('[type=4]');
       let hasElectrical = edgesElectrical.length > 0;
-      let isTarget = edgesChemical.sources().contains(innerNodes);
-      let isSource = edgesChemical.targets().contains(innerNodes);
+      let isChemTarget = edgesChemical.sources().contains(innerNodes);
+      let isChemSource = edgesChemical.targets().contains(innerNodes);
+      let isFuncTarget = edgesFunctional.sources().contains(innerNodes);
+      let isFuncSource = edgesFunctional.targets().contains(innerNodes);
+
+      let isTarget = isChemTarget || isFuncTarget;
+      let isSource = isChemSource || isFuncSource;
+
       let idx = 0;
 
       if (hasElectrical) {

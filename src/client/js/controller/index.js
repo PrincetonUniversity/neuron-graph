@@ -87,6 +87,10 @@ let bindOptionsEvents = ({ view, model, controller }) => {
       model.setThresholdElectrical(threshold);
       model.updateNetwork();
     })
+    .on('setThresholdFunctional', threshold => {
+      model.setThresholdFunctional(threshold);
+      model.updateNetwork();
+    })
     .on('setLayout', layout => {
       let groupMemberPositions = model
         .getGroupMembers()
@@ -437,12 +441,13 @@ class Controller extends EventEmitter {
     let allDatasets = DataService.getDatasetList(database);
     let datasets = intersection(allDatasets, state['datasets'] || []);
     if (datasets.length === 0) {
-      datasets = (database == 'head') ? ['witvliet_2020_7', 'witvliet_2020_8'] : allDatasets;
+      datasets = (database == 'head') ? ['witvliet_2020_7', 'witvliet_2020_8', 'liefer_2021_mock'] : allDatasets;
     }
     let nodeColor = state['nodeColor'] || 'type';
     let layout = state['layout'] || 'concentric';
     let thresholdChemical = state['thresholdChemical'] || 3;
     let thresholdElectrical = state['thresholdElectrical'] || 2;
+    let thresholdFunctional = state['thresholdFunctional'] || 2;
     let showLinked =
       state['showLinked'] !== undefined ? state['showLinked'] : true;
     let showIndividual =
@@ -464,6 +469,7 @@ class Controller extends EventEmitter {
     view.options.selectOption(layout);
     view.options.setInput('threshold-chm', thresholdChemical);
     view.options.setInput('threshold-gj', thresholdElectrical);
+    view.options.setInput('threshold-fc', thresholdFunctional);
     view.options.checkOption('show-linked', showLinked);
     view.options.checkOption('show-indiv-cells', showIndividual);
     view.options.checkOption('show-edge-num', showEdgeLabel);
@@ -477,6 +483,7 @@ class Controller extends EventEmitter {
     model.setLayout(layout);
     model.setThresholdChemical(thresholdChemical);
     model.setThresholdElectrical(thresholdElectrical);
+    model.setThresholdFunctional(thresholdFunctional);
     model.setShowLinked(showLinked);
     model.setShowIndividual(showIndividual);
     model.setShowEdgeLabel(showEdgeLabel);

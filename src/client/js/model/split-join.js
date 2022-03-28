@@ -116,7 +116,9 @@ ModelPrototype.splitSelected = function() {
           '<br />Chemical synapses: ' +
           this.thresholdChemical +
           '<br />Gap junctions: ' +
-          this.thresholdElectrical,
+          this.thresholdElectrical +
+          '<br />Functional connections: ' +
+          this.thresholdFunctional,
         arr: filteredAfterSplit
       });
     }

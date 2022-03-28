@@ -668,6 +668,19 @@ test('model cytoscape adaptor converts the model to a format that cytoscape unde
           "label": "0,0,0,1,5,4,0,0,2",
           "label_long": "L1A: 0\nL1B: 0\nL1C: 0\nL1D: 1\nL2A: 5\nL3A: 4\nJSH: 0\nN2U: 0\nAdA: 2"
         }
+      },
+      "ASEtyp4AIZ": {
+        "group": "edges",
+        "classes": "",
+        "data": {
+          "id": "ASEtyp4AIZ",
+          "source": "ASE",
+          "target": "AIZ",
+          "type": 4,
+          "width": 2,
+          "label": "0,0,0,1,5,4,0,0,2",
+          "label_long": "L1A: 0\nL1B: 0\nL1C: 0\nL1D: 1\nL2A: 5\nL3A: 4\nJSH: 0\nN2U: 0\nAdA: 2"
+        }
       }
     },
     "hidden": {},

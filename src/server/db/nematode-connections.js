@@ -70,7 +70,8 @@ let queryConnections = async (connection, opts) => {
     datasetIds,
     includeNeighboringCells,
     thresholdChemical,
-    thresholdElectrical
+    thresholdElectrical,
+    thresholdFunctional
   } = opts;
 
   // First, get all connections matching the threshold, then fetch the synapse number for these
@@ -85,6 +86,7 @@ let queryConnections = async (connection, opts) => {
         AND (
           (type = 'chemical' && synapses >= ${thresholdChemical})
           OR (type = 'electrical' && synapses >= ${thresholdElectrical})
+          OR (type = 'functional' && synapses >= ${thresholdFunctional})
         )
       GROUP BY pre, post, type
     ) f
@@ -102,18 +104,25 @@ let queryConnections = async (connection, opts) => {
 // datasetIds -> array of strings,
 // thresholdChemical -> int
 // thresholdElectrical -> int
+// thresholdFunctional -> int
 // includeNeighboringCells -> bool
 // includeAnnotatopns -> bool
 let queryNematodeConnections = async (connection, opts) => {
   let cells = connection.escape(opts.cells);
   let datasetIds = connection.escape(opts.datasetIds);
   let datasetType = connection.escape(opts.datasetType);
-  let thresholdChemical = !isNaN(parseInt(opts.thresholdChemical))
-    ? opts.thresholdChemical
-    : 3;
-  let thresholdElectrical = !isNaN(parseInt(opts.thresholdElectrical))
-    ? opts.thresholdElectrical
-    : 3;
+  let thresholdChemical = 
+    !isNaN(parseInt(opts.thresholdChemical)) 
+      ? opts.thresholdChemical 
+      : 3;
+  let thresholdElectrical = 
+    !isNaN(parseInt(opts.thresholdElectrical)) 
+      ? opts.thresholdElectrical 
+      : 3;
+  let thresholdFunctional = 
+    !isNaN(parseInt(opts.thresholdFunctional)) 
+      ? opts.thresholdFunctional 
+      : 2;
   let includeNeighboringCells =
     typeof opts.includeNeighboringCells === 'string'
       ? opts.includeNeighboringCells === 'true'
@@ -153,7 +162,8 @@ let queryNematodeConnections = async (connection, opts) => {
     datasetIds,
     includeNeighboringCells,
     thresholdChemical,
-    thresholdElectrical
+    thresholdElectrical,
+    thresholdFunctional
   });
 
   // for each connection, append the number of synapses that each dataset has for that connection
@@ -180,9 +190,9 @@ let queryNematodeConnections = async (connection, opts) => {
 
   const gapJunctions = connections.filter(c => c.type == 'electrical');
   const chemicalSynapses = connections.filter(c => c.type == 'chemical');
-
+  const functionalSynapses = connections.filter(c => c.type == 'functional');
   const mergedGapJunctions = mergeGapJunctions(gapJunctions);
-  return [...mergedGapJunctions, ...chemicalSynapses];
+  return [...mergedGapJunctions, ...chemicalSynapses, ...functionalSynapses];
 };
 
 module.exports = {

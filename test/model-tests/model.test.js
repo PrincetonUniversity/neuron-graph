@@ -37,9 +37,7 @@ test('model.clear', function(){
   expect(m.input).toEqual([]);
 });
 
-
-
-test('mode.getState', function(){
+test('model.getState', function(){
   let m = new Model();
 
   const datasetType = Array.from(DataService.datasetTypes)[0];
@@ -56,6 +54,7 @@ test('mode.getState', function(){
   m.setShowPostemb(true);
   m.setThresholdChemical(3);
   m.setThresholdElectrical(2);
+  m.setThresholdFunctional(4);
 
   m.lockPositions( { AIY: { x: 1, y: 1 } } );
 
@@ -70,6 +69,7 @@ test('mode.getState', function(){
     "layout": "concentric",
     "thresholdChemical": 3,
     "thresholdElectrical": 2,
+    "thresholdFunctional": 4,
     "showLinked": false,
     "showIndividual": false,
     "showEdgeLabel": false,

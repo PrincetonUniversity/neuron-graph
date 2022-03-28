@@ -200,8 +200,10 @@ class OptionsView extends BaseView {
 
       if ($el.attr('id') == 'threshold-chm') {
         this.emit('setThresholdChemical', threshold);
-      } else {
+      } else if ($el.attr('id') == 'threshold-gj') {
         this.emit('setThresholdElectrical', threshold);
+      } else if ($el.attr('id') == 'threshold-fc') {
+        this.emit('setThresholdFunctional', threshold);
       }
     });
 

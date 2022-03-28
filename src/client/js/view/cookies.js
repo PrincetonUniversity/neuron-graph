@@ -10,6 +10,7 @@ const KEY_TO_COOKIE_MAP = {
   layout: 'la',
   thresholdChemical: 'tc',
   thresholdElectrical: 'te',
+  thresholdFunctional: 'tf',
   showLinked: 'sl',
   showIndividual: 'si',
   showEdgeLabel: 'se',
@@ -95,7 +96,7 @@ const decodeParameters = rawParameters => {
         ? value
         : null;
     }
-    if (['thresholdChemical', 'thresholdElectrical'].includes(key)) {
+    if (['thresholdChemical', 'thresholdElectrical', 'thresholdFunctional'].includes(key)) {
       value = parseInt(value, 10);
     }
     if (
@@ -197,6 +198,9 @@ class CookiesView extends BaseView {
     });
     this.model.on('electricalThresholdChanged', threshold => {
       this.setCookie('thresholdElectrical', threshold);
+    });
+    this.model.on('functionalThresholdChanged', threshold => {
+      this.setCookie('thresholdFunctional', threshold);
     });
     this.model.on('layoutChanged', layout => {
       this.setCookie('layout', layout);

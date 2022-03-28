@@ -131,6 +131,14 @@
                 <div class="button" data-type="plus">+</div>
               </div>
             </div>
+            <div class="float-wrapper">
+              <div class="number-input-label">Functional:</div>
+              <div class="number-input" id="threshold-fc">
+                <div class="button" data-type="minus">-</div>
+                <input value="" />
+                <div class="button" data-type="plus">+</div>
+              </div>
+            </div>
           </div>
 
           <div class="spacer"></div>
@@ -215,6 +223,7 @@
       <ol id="legend-edges" class="edges">
         <li id="edge-typ0" class="basic">Chemical synapse</li>
         <li id="edge-typ2" class="basic">Gap junction</li>
+        <li id="edge-typ4" class="basic">Functional</li>
       </ol>
       <ol id="legend-annotations" class="edges">
         <li id="edge-stable">Stable <small><i class="icon-question-circle-o smallhelp" data-topic="annotations"></i></small></li>
@@ -287,6 +296,11 @@
         <div class="content">
           <div id="data-sources-content">
             <h1>Data sources</h1>
+            <h2>Liefer et al., 2021, mock data</h2>
+            <div class="p">
+              This dataset is mock data for testing functional connections.
+              Work in progress.
+            </div>
             <h2>White et al., 1986, compilation</h2>
             <div class="p">
               This dataset is a compilation of multiple partially overlapping animals. The cells 

@@ -28,7 +28,9 @@ class Model extends EventEmitter {
     this.joined = [];
 
     this.groups = {};
-    this.parent = {}; // should only be used by the groups module, no other module should not access this directly
+    // parent should only be used by the groups module
+    // no other module should access parent directly
+    this.parent = {};
 
     this.positions = {};
     this.lockedPositions = [];
@@ -96,6 +98,7 @@ class Model extends EventEmitter {
         datasetIds: this.datasets,
         thresholdChemical: this.thresholdChemical,
         thresholdElectrical: this.thresholdElectrical,
+        thresholdFunctional: this.thresholdFunctional,
         includeNeighboringCells: this.showLinked,
         includeAnnotations: true
       })
@@ -131,6 +134,7 @@ class Model extends EventEmitter {
       layout: this.layout,
       thresholdChemical: this.thresholdChemical,
       thresholdElectrical: this.thresholdElectrical,
+      thresholdFunctional: this.thresholdFunctional,
       showLinked: this.showLinked,
       showIndividual: this.showIndividual,
       showEdgeLabel: this.showEdgeLabel,

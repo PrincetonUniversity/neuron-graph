@@ -196,7 +196,10 @@ $sidenav-padding: 16px;
   }
   .active .sel-placeholder {
     @extend .icon-angle-up;
+    color: lighten($text-inactive, 10%);
+    border-radius: 8px 8px 0 0;
   }
+
   .sel-placeholder::before {
     font-family: icomoon;
     position: absolute;
@@ -208,12 +211,7 @@ $sidenav-padding: 16px;
   .sel-placeholder:hover::before {
     color: $link-hover-color;
   }
-  .active .sel-placeholder {
-    color: lighten($text-inactive, 10%);
-    border-radius: 8px 8px 0 0;
-  }
-
-
+  
   .option-container {
     position: absolute;
     width: 100%;
@@ -280,9 +278,9 @@ $sidenav-padding: 16px;
 
   /* Dataset bookmarks */
   $bookmark-top-margin: 40px;
-  $bookmark-height: 20px;
-  $bookmark-width: 20px;
-  $triangle-height: 13px;
+  $bookmark-height: 12px;
+  $bookmark-width: 12px;
+  $triangle-height: 8px;
   $dataset-tooltip-height: 76px;
   $dataset-tooltip-width: 150px;
   $dataset-tooltip-padding: 8px;

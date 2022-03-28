@@ -76,10 +76,19 @@ test('set threshold chemical', function(){
 test('set threshold electrical', function(){
   let m = new Model();
 
-  m.setThresholdElectrical(3);
+  m.setThresholdElectrical(4);
 
-  expect( m.thresholdElectrical ).toEqual( 3 );
+  expect( m.thresholdElectrical ).toEqual( 4 );
 });
+
+test('set threshold functional', function(){
+  let m = new Model();
+
+  m.setThresholdFunctional(2);
+
+  expect( m.thresholdFunctional ).toEqual( 2 );
+});
+
 
 test('set show linked', function(){
   let m = new Model();

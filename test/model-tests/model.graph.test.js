@@ -65,7 +65,7 @@ test('source and target do not need to be added before adding an edge', function
   expect( g.nodes() ).toEqual( ['ASE', 'AIY'] );
 });
 
-test('you can specify whether the edge is chemical or electrical', function(){
+test('you can specify the type of an edge', function(){
   let g = new Graph();
 
   g.addEdge('ASE', 'AIY', 'electrical');

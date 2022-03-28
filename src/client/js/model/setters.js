@@ -46,6 +46,11 @@ ModelPrototype.setThresholdElectrical = function(threshold) {
   this.emit('electricalThresholdChanged', threshold);
 };
 
+ModelPrototype.setThresholdFunctional = function(threshold) {
+  this.thresholdFunctional = threshold;
+  this.emit('functionalThresholdChanged', threshold);
+};
+
 ModelPrototype.setShowLinked = function(checked) {
   this.showLinked = checked;
   this.emit('showLinkedChanged', checked);

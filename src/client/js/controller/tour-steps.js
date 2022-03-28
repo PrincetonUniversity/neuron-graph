@@ -37,6 +37,7 @@ let getTourSteps = view => {
           layout: 'concentric',
           thresholdChemical: 3,
           thresholdElectrical: 2,
+          thresholdFunctional: 2,
           showLinked: true,
           showIndividual: false,
           showEdgeLabel: false,
@@ -176,8 +177,8 @@ let getTourSteps = view => {
       {
         title: 'Individual neurons',
         body: [
-          '<b>Split</b> neuron class into individual members, or <b>join</b> them to classes again.',
-          'AWC is split into its two class members: AWCL and AWCR.'
+          '<b>Split</b> neuron class into individual members, or <b>join</b> them to classes ',
+          'again. AWC is split into its two class members: AWCL and AWCR.'
         ],
         coordinate: () => {
           let { x1, x2, y1 } = view.graph.getBoundingBox(['AWCL', 'AWCR']);
@@ -228,7 +229,8 @@ let getTourSteps = view => {
         body: [
           'Change the datasets to explore variability and development.',
           'We suggest using the dataset with the most samples whenever possible.',
-          'Please open <span class="a smallhelp">help</span> for further information on the different datasets.'
+          'Please open <span class="a smallhelp">help</span> for further information on the ',
+          'different datasets.'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('set-database');
@@ -258,10 +260,12 @@ let getTourSteps = view => {
         }
       },
       {
+        // TODO: Update the text to reflect the threshold value for functional connections
         title: 'Hide weak connections',
         body: [
-          'Filter out weak connections that may reflect individual variability or artefacts of the annotation process.',
-          'We suggest setting the threshold to at least 3-5 chemical synapses and 2 gap junctions for cell classes.'
+          'Filter out weak connections that may reflect individual variability or artifacts of ',
+          'the annotation process. We suggest setting the threshold for cell classes to at least ',
+          '3-5 chemical synapses, 2 gap junctions, and 2 functional "connections".'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('hide-edges');
@@ -293,7 +297,8 @@ let getTourSteps = view => {
       {
         title: 'Export image',
         body: [
-          'Export your network as a high-resolution image with a legend, better suited for presentations and publications.'
+          'Export your network as a high-resolution image with a legend, better suited for ',
+          'presentations and publications.'
         ],
         coordinate: () => {
           let { x2, y1, y2 } = view.options.getBoundingBox('save-png');
