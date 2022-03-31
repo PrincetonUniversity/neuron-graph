@@ -356,7 +356,14 @@ let cystyle = {
       }
     },
     {
-      selector: 'edge.besideGj',
+      selector: 'edge.besideNeighbors',
+      css: {
+        'curve-style': 'bezier',
+        'control-point-step-size': 40
+      }
+    },
+    {
+      selector: 'edge.besideGjAlone',
       css: {
         'curve-style': 'unbundled-bezier'
       }
@@ -374,6 +381,14 @@ let cystyle = {
       css: {
         'target-arrow-shape': 'tee',
         'source-arrow-shape': 'tee'
+      }
+    },
+    {
+      selector: 'edge[type = 4]:loop',
+      css: {
+        'curve-style': 'bezier',
+        'source-distance-from-node': 0,
+        'target-distance-from-node': 0
       }
     },
     {

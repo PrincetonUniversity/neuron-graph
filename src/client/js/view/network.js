@@ -184,12 +184,33 @@ class GraphView extends View2 {
       cy.add(Object.values(newEdges));
 
       cy.startBatch();
+      //
       // Label edges parallel to gap junctions to prevent overlaps.
-      cy.edges().removeClass('besideGj');
+      //
+
+      // Remove all bowing (dynamic: besideNeighbors and static: besideGjAlone)
+      cy.edges().removeClass('besideNeighbors');
+      cy.edges().removeClass('besideGjAlone');
+      // Start out by assuming every line has a neighbor (and dynamically & concentrically bow everything)
+      cy.edges().addClass('besideNeighbors');
+      // Remove bowing from all gap junctions
+      cy.edges('[type = 2]').removeClass('besideNeighbors');
+      // Get gap junctions that have a neighbor of 1 type (functional connections) and remove the bezier bowing and add
+      // a static bowing (unbundled-bezier)
       cy.edges('[type = 2]')
         .parallelEdges()
         .filter('[type != 2]')
-        .addClass('besideGj');
+        .filter('[type != 0]')
+        .removeClass('besideNeighbors')
+        .addClass('besideGjAlone');
+      // Get gap junctions that have a neighbor of 1 type (chemical synapse) and remove the bezier bowing and add a
+      // static bowing (unbundled-bezier)
+      cy.edges('[type = 2]')
+        .parallelEdges()
+        .filter('[type != 2]')
+        .filter('[type != 4]')
+        .removeClass('besideNeighbors')
+        .addClass('besideGjAlone');
 
       // Label nodes connected with gap junctions in order to efficiently update gap junction edges
       // that are stretched/shrinked as the node moves.
