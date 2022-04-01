@@ -299,6 +299,8 @@ let cystyle = {
         'line-color': cytoscapeColors.coloursEdge['typ0'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ0'],
         color: 'black',
+        // 'control-point-distances': '-20 20',
+        'control-point-step-size': 40,
 
         'text-outline-width': 2,
         'text-outline-color': cytoscapeColors.backgroundColor,
@@ -320,12 +322,22 @@ let cystyle = {
     {
       selector: 'edge[type = 4]',
       css: {
-        'curve-style': 'segments',
+        width: 'data(width)',
+        'font-size': '18px',
+        'z-index': 5,
+        'curve-style': 'bezier',
         'target-arrow-shape': 'triangle',
         'line-color': cytoscapeColors.coloursEdge['typ4'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
-        'segment-distances': '0 -8 8 -8 8 0'
+        color: 'black',
+        // 'control-point-distances': '-40 40',
+        'control-point-step-size': 40,
+
+        'text-outline-width': 2,
+        'text-outline-color': cytoscapeColors.backgroundColor,
+        'source-distance-from-node': 10,
+        'target-distance-from-node': 10
       }
     },
     {
@@ -356,18 +368,40 @@ let cystyle = {
       }
     },
     {
-      selector: 'edge.besideNeighbors',
+      selector: 'edge.allEvenNonGj',
       css: {
         'curve-style': 'bezier',
-        'control-point-step-size': 40
+        'control-point-step-size': '40px'
       }
     },
     {
-      selector: 'edge.besideGjAlone',
+      selector: 'edge.evenNonGjWhenOddNonGjWithGj',
       css: {
-        'curve-style': 'unbundled-bezier'
+        'curve-style': 'bezier',
+        'control-point-step-size': 50
       }
     },
+    // {
+    //   selector: 'edge.evenNonGjWhenOddNonGjWithOutGj',
+    //   css: {
+    //     'curve-style': 'bezier',
+    //     'control-point-step-size': '40px'
+    //   }
+    // },
+    {
+      selector: 'edge.oddNonGjWhenOddNonGjWithGj',
+      css: {
+        'curve-style': 'unbundled-bezier',
+        'control-point-distances': '-40'
+      }
+    },
+    // {
+    //   selector: 'edge.oddNonGjWhenOddNonGjWithOutGj',
+    //   css: {
+    //     'curve-style': 'bezier',
+    //     'control-point-step-size': '40px'
+    //   }
+    // },
     {
       selector: 'edge:loop',
       css: {
