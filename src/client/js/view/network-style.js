@@ -299,7 +299,6 @@ let cystyle = {
         'line-color': cytoscapeColors.coloursEdge['typ0'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ0'],
         color: 'black',
-        // 'control-point-distances': '-20 20',
         'control-point-step-size': 40,
 
         'text-outline-width': 2,
@@ -331,7 +330,6 @@ let cystyle = {
         'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         color: 'black',
-        // 'control-point-distances': '-40 40',
         'control-point-step-size': 40,
 
         'text-outline-width': 2,
@@ -375,35 +373,19 @@ let cystyle = {
       }
     },
     {
-      selector: 'edge.evenNonGjWhenOddNonGjWithGj',
+      selector: 'edge.innerTierWithGj',
       css: {
-        // 'curve-style': 'bezier',
-        // 'control-point-step-size': 50
         'curve-style': 'unbundled-bezier',
         'control-point-distances': '25 -25'
       }
     },
-    // {
-    //   selector: 'edge.evenNonGjWhenOddNonGjWithOutGj',
-    //   css: {
-    //     'curve-style': 'bezier',
-    //     'control-point-step-size': '40px'
-    //   }
-    // },
     {
-      selector: 'edge.oddNonGjWhenOddNonGjWithGj',
+      selector: 'edge.outerTierWithGj',
       css: {
         'curve-style': 'unbundled-bezier',
         'control-point-distances': '50 -50'
       }
     },
-    // {
-    //   selector: 'edge.oddNonGjWhenOddNonGjWithOutGj',
-    //   css: {
-    //     'curve-style': 'bezier',
-    //     'control-point-step-size': '40px'
-    //   }
-    // },
     {
       selector: 'edge:loop',
       css: {

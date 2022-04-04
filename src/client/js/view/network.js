@@ -184,67 +184,17 @@ class GraphView extends View2 {
       cy.add(Object.values(newEdges));
 
       cy.startBatch();
-      //
-      // Label edges parallel to gap junctions to prevent overlaps.
-      //
 
-      // // Remove all bowing (dynamic: besideNeighbors and static: besideGjAlone)
-      // cy.edges().removeClass('twoChemicalBesideNeighbors');
-      // cy.edges().removeClass('twoFunctionalBesideNeighbors');
-      // cy.edges().removeClass('besideGjAlone');
-      // // Start out by assuming every functional/synaptic line has a neighbor (and bow everything)
-      // cy.edges('[type = 0]').addClass('twoChemicalBesideNeighbors');
-      // cy.edges('[type = 4]').addClass('twoFunctionalBesideNeighbors');
-      // // Get gap junctions that have a neighbor of 1 type (functional connections) and remove the bezier bowing and add
-      // // a static bowing (unbundled-bezier)
-      // cy.edges('[type = 2]')
-      //   .parallelEdges()
-      //   .filter(function(ele, i, eles) {
-      //     let numfc = 0;
-      //     let numcs = 0;
-      //     for (let i = 0; i < eles.size; i++) {
-      //       if (eles[i].data('type') === 0) {
-      //         numcs += 1;
-      //       } else if (eles[i].data('type') === 4) {
-      //         numfc += 1;
-      //       }
-      //     }
-      //     if ((numfc == 1 && numcs == 0) || (numfc == 0 && numcs == 1)) {
-      //       return true;
-      //     }
-      //     return false;
-      //   })
-      //   .removeClass('twoFunctionalBesideNeighbors')
-      //   .removeClass('twoChemicalBesideNeighbors')
-      //   .addClass('besideGjAlone');
+      //
+      // When a gap junction is present, 2 tiers of unbundled-bezier are used to prevent overlaps.
+      //
 
       // Remove all bowing (dynamic: besideNeighbors and static: besideGjAlone)
-      cy.edges().removeClass('allEvenNonGj');
-      cy.edges().removeClass('evenNonGjWhenOddNonGjWithGj');
-      cy.edges().removeClass('evenNonGjWhenOddNonGjWithOutGj');
-      cy.edges().removeClass('oddNonGjWhenOddNonGjWithGj');
-      cy.edges().removeClass('oddNonGjWhenOddNonGjWithOutGj');
-      // cy.edges('[type != 2]').removeStyle('curve-style control-point-step-size')
-      // When there are an even number of non-gap junction lines, assign the allEvenNonGj selector
-      // cy.edges()
-      //   .parallelEdges()
-      //   .filter(function(ele, i, eles) {
-      //     let numlines = 0;
-      //     for (let i = 0; i < eles.size; i++) {
-      //       if (eles[i].data('type') === 0 || eles[i].data('type') === 4) {
-      //         numlines += 1;
-      //       }
-      //     }
-      //     if (numlines == 2 || numlines == 4) {
-      //       return true;
-      //     }
-      //     return false;
-      //   })
-      //   .addClass('allEvenNonGj')
-      //   .style('curve-style', 'bezier')
-      //   .style('control-point-step-size', '40px');
+      cy.edges().removeClass('innerTierWithGj');
+      cy.edges().removeClass('outerTierWithGj');
 
-      // When there are an even number of nonGj lines neighboring a gap junction, assign the evenNonGjWhenOddNonGjWithGj selector to the even type
+      // When there is a gap junction, make the inner tier be populated with the majority type (synapse + functional),
+      // or synapses if full
       cy.edges('[type = 2]')
         .parallelEdges()
         .not(':loop')
@@ -264,47 +214,20 @@ class GraphView extends View2 {
             }
           }
           if (ele.data('type') == 0 && numcs == 2 && numfc == 1) {
-            console.log("even synapse")
             return true;
           } else if (ele.data('type') == 4 && numcs == 1 && numfc == 2) {
-            console.log("even functional connection")
             return true;
           } else if (tot < 3) {
-            console.log("Fewer than 3 chemical synapses & functional connection")
+            return true;
+          } else if (ele.data('type') === 0 && tot === 4) {
             return true;
           }
           return false;
         })
-        .addClass('evenNonGjWhenOddNonGjWithGj')
-      //   .style('curve-style', 'bezier')
-      //   .style('control-point-step-size', '50px');
+        .addClass('innerTierWithGj')
 
-      // When there are an even number of nonGj lines not neighboring a gap junction, assign the evenNonGjWhenOddNonGjWithOutGj selector to the even type
-      // cy.edges('[type != 2]')
-      //   .parallelEdges()
-      //   .filter(function(ele, i, eles) {
-      //     let eventype = '0';
-      //     let numfc = 0;
-      //     let numcs = 0;
-      //     for (let i = 0; i < eles.size; i++) {
-      //       if (eles[i].data('type') === 0) {
-      //         numcs += 1;
-      //       } else if (eles[i].data('type') === 4) {
-      //         numfc += 1;
-      //       }
-      //     }
-      //     if (ele.data('type') == 0 && (numcs == 2 || numfc == 1)) {
-      //       return true;
-      //     } else if (ele.data('type') == 4 && (numcs == 1 || numfc == 2)) {
-      //       return true;
-      //     }
-      //     return false;
-      //   })
-      //   .addClass('evenNonGjWhenOddNonGjWithOutGj')
-      //   .style('curve-style', 'bezier')
-      //   .style('control-point-step-size', '40px');
-
-      // When there are an odd number of nonGj lines neighboring a gap junction, assign the oddNonGjWhenOddNonGjWithGj selector to the odd type
+      // When there is a gap junction, make the outer tier be populated with the minority type (synapse + functional),
+      // or functional connections if full
       cy.edges('[type = 2]')
         .parallelEdges()
         .not(':loop')
@@ -320,105 +243,16 @@ class GraphView extends View2 {
               numfc += 1;
             }
           }
-          if (ele.data('type') == 4 && (numcs == 2 && numfc == 1)) {
-            console.log("odd functional connection num synapses:", numcs,"source: ", ele.source(), "target:", ele.target(), "edge:", ele)
+          if (ele.data('type') === 4 && (numcs === 2 && numfc === 1)) {
             return true;
-          } else if (ele.data('type') == 0 && (numcs == 1 && numfc == 2)) {
-            console.log("odd synapse")
+          } else if (ele.data('type') === 0 && (numcs === 1 && numfc === 2)) {
+            return true;
+          } else if (ele.data('type') === 4 && (numcs === 2 && numfc === 2)) {
             return true;
           }
           return false;
         })
-        .addClass('oddNonGjWhenOddNonGjWithGj')
-
-      // This is a fix for the fact that there are multiple edges going in 1 direction
-      // cy.edges('[type = 2]')
-      //   .parallelEdges()
-      //   .not(':loop')
-      //   .filter(function(ele, i, eles) {
-      //     let fcfwd = false;
-      //     let fcrev = false;
-      //     let csfwd = false;
-      //     let csrev = false;
-      //     var src = ele.data('source')
-      //     for (let i = 0; i < eles.size(); i++) {
-      //       if (eles[i].data('type') === 0) {
-      //         if (eles[i].data('source') === src) {
-      //           csfwd = true;
-      //         } else {
-      //           csrev = true;
-      //         }
-      //       } else if (eles[i].data('type') === 4) {
-      //         if (eles[i].data('source') === src) {
-      //           fcfwd = true;
-      //         } else {
-      //           fcrev = true;
-      //         }
-      //       }
-      //     }
-      //     if (ele.data('type') == 4 && ((csfwd && csrev) && ((fcfwd && !fcrev) || (!fcfwd && fcrev)))) {
-      //       console.log("odd functional connection num synapses:", numcs,"source: ", ele.source(), "target:", ele.target(), "edge:", ele)
-      //       return true;
-      //     } else if (ele.data('type') == 0 && ((fcfwd && fcrev) && ((csfwd && !csrev) || (!csfwd && csrev)))) {
-      //       console.log("odd synapse")
-      //       return true;
-      //     }
-      //     return false;
-      //   })
-      //   .addClass('oddNonGjWhenOddNonGjWithGj')
-
-      //   .style('curve-style', 'unbundled-bezier')
-      //   .style('control-point-step-size', '50px');
-
-      // When there are an odd number of nonGj lines not neighboring a gap junction, assign the oddNonGjWhenOddNonGjWithOutGj selector to the odd type
-      // cy.edges('[type != 2]')
-      // .parallelEdges()
-      // .filter(function(ele, i, eles) {
-      //   let eventype = '0';
-      //   let numfc = 0;
-      //   let numcs = 0;
-      //   for (let i = 0; i < eles.size; i++) {
-      //     if (eles[i].data('type') === 0) {
-      //       numcs += 1;
-      //     } else if (eles[i].data('type') === 4) {
-      //       numfc += 1;
-      //     }
-      //   }
-      //   if (ele.data('type') == 4 && (numcs == 2 || numfc == 1)) {
-      //     return true;
-      //   } else if (ele.data('type') == 0 && (numcs == 1 || numfc == 2)) {
-      //     return true;
-      //   }
-      //   return false;
-      // })
-      // .addClass('oddNonGjWhenOddNonGjWithOutGj')
-      // .style('curve-style', 'bezier')
-      // .style('control-point-step-size', '50px');
-
-      // let all3 = cy.edges('[type = 2]')
-      //   .parallelEdges()
-      //   .not(':loop')
-      //   .filter(function(ele, i, eles) {
-      //     let eventype = '0';
-      //     let numfc = 0;
-      //     let numcs = 0;
-      //     for (let i = 0; i < eles.size(); i++) {
-      //       if (eles[i].data('type') === 0) {
-      //         numcs += 1;
-      //       } else if (eles[i].data('type') === 4) {
-      //         numfc += 1;
-      //       }
-      //     }
-      //     if (ele.data('type') == 0 && (numcs == 2 || numfc == 1)) {
-      //       console.log("even synapse source: ", ele.source(), "target:", ele.target())
-      //       return true;
-      //     } else if (ele.data('type') == 4 && (numcs == 1 || numfc == 2)) {
-      //       console.log("even functional connection source: ", ele.source(), "target:", ele.target())
-      //       return true;
-      //     }
-      //     return false;
-      //   })
-      // console.log(all3.length)
+        .addClass('outerTierWithGj')
 
       // Label nodes connected with gap junctions in order to efficiently update gap junction edges
       // that are stretched/shrinked as the node moves.
