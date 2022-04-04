@@ -252,12 +252,15 @@ class GraphView extends View2 {
         .filter(function(ele) {
           let numfc = 0;
           let numcs = 0;
+          let tot = 0;
           let nbrs = ele.parallelEdges()
           for (let i = 0; i < nbrs.size(); i++) {
             if (nbrs[i].data('type') === 0) {
               numcs += 1;
+              tot+= 1;
             } else if (nbrs[i].data('type') === 4) {
               numfc += 1;
+              tot += 1;
             }
           }
           if (ele.data('type') == 0 && numcs == 2 && numfc == 1) {
@@ -265,6 +268,9 @@ class GraphView extends View2 {
             return true;
           } else if (ele.data('type') == 4 && numcs == 1 && numfc == 2) {
             console.log("even functional connection")
+            return true;
+          } else if (tot < 3) {
+            console.log("Fewer than 3 chemical synapses & functional connection")
             return true;
           }
           return false;

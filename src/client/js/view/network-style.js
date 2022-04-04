@@ -380,7 +380,7 @@ let cystyle = {
         // 'curve-style': 'bezier',
         // 'control-point-step-size': 50
         'curve-style': 'unbundled-bezier',
-        'control-point-distances': '40 -40 80 -80'
+        'control-point-distances': '25 -25'
       }
     },
     // {
@@ -394,7 +394,7 @@ let cystyle = {
       selector: 'edge.oddNonGjWhenOddNonGjWithGj',
       css: {
         'curve-style': 'unbundled-bezier',
-        'control-point-distances': '80'
+        'control-point-distances': '50 -50'
       }
     },
     // {
