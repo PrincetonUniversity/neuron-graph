@@ -366,13 +366,6 @@ let cystyle = {
       }
     },
     {
-      selector: 'edge.allEvenNonGj',
-      css: {
-        'curve-style': 'bezier',
-        'control-point-step-size': '40px'
-      }
-    },
-    {
       selector: 'edge.innerTierWithGj',
       css: {
         'curve-style': 'unbundled-bezier',
