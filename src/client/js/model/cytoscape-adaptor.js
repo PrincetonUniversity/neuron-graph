@@ -122,7 +122,7 @@ ModelPrototype.makeCytoscapeEdge = function(
   let classes = [];
 
   let syns = datasets.map(dataset => synapses[dataset] || 0);
-  let meanSyn = sum(syns) / syns.length;
+  let meanSyn = Math.abs(sum(syns) / syns.length);
   let width;
 
   if (edgeType === 0) {

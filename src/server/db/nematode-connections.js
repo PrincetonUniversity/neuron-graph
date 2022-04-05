@@ -86,7 +86,7 @@ let queryConnections = async (connection, opts) => {
         AND (
           (type = 'chemical' && synapses >= ${thresholdChemical})
           OR (type = 'electrical' && synapses >= ${thresholdElectrical})
-          OR (type = 'functional' && synapses >= ${thresholdFunctional})
+          OR (type = 'functional' && ABS(synapses) >= ${thresholdFunctional})
         )
       GROUP BY pre, post, type
     ) f
