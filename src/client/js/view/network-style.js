@@ -299,7 +299,7 @@ let cystyle = {
         'line-color': cytoscapeColors.coloursEdge['typ0'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ0'],
         color: 'black',
-        'control-point-step-size': 40,
+        'control-point-step-size': 20,
 
         'text-outline-width': 2,
         'text-outline-color': cytoscapeColors.backgroundColor,
@@ -330,7 +330,7 @@ let cystyle = {
         'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         color: 'black',
-        'control-point-step-size': 40,
+        'control-point-step-size': 20,
 
         'text-outline-width': 2,
         'text-outline-color': cytoscapeColors.backgroundColor,
