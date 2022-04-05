@@ -193,8 +193,8 @@ class GraphView extends View2 {
       cy.edges().removeClass('innerTierWithGj');
       cy.edges().removeClass('outerTierWithGj');
 
-      // When there is a gap junction, make the inner tier be populated with the majority type (synapse + functional),
-      // or synapses if full
+      // When there is a gap junction, make the inner tier be populated with the majority type
+      // (synapse + functional), or synapses if full
       cy.edges('[type = 2]')
         .parallelEdges()
         .not(':loop')
@@ -203,11 +203,11 @@ class GraphView extends View2 {
           let numfc = 0;
           let numcs = 0;
           let tot = 0;
-          let nbrs = ele.parallelEdges()
+          let nbrs = ele.parallelEdges();
           for (let i = 0; i < nbrs.size(); i++) {
             if (nbrs[i].data('type') === 0) {
               numcs += 1;
-              tot+= 1;
+              tot += 1;
             } else if (nbrs[i].data('type') === 4) {
               numfc += 1;
               tot += 1;
@@ -224,10 +224,10 @@ class GraphView extends View2 {
           }
           return false;
         })
-        .addClass('innerTierWithGj')
+        .addClass('innerTierWithGj');
 
-      // When there is a gap junction, make the outer tier be populated with the minority type (synapse + functional),
-      // or functional connections if full
+      // When there is a gap junction, make the outer tier be populated with the minority type
+      // (synapse + functional), or functional connections if full
       cy.edges('[type = 2]')
         .parallelEdges()
         .not(':loop')
@@ -235,7 +235,7 @@ class GraphView extends View2 {
         .filter(function(ele) {
           let numfc = 0;
           let numcs = 0;
-          let nbrs = ele.parallelEdges()
+          let nbrs = ele.parallelEdges();
           for (let i = 0; i < nbrs.size(); i++) {
             if (nbrs[i].data('type') === 0) {
               numcs += 1;
@@ -252,7 +252,7 @@ class GraphView extends View2 {
           }
           return false;
         })
-        .addClass('outerTierWithGj')
+        .addClass('outerTierWithGj');
 
       // Label nodes connected with gap junctions in order to efficiently update gap junction edges
       // that are stretched/shrinked as the node moves.
