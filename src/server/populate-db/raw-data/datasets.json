@@ -1,5 +1,13 @@
 [
    {
+      "id": "randi_funconn_wildtype_2022-04-01_16bdecf",
+      "name": "randi_funconn_wildtype_2022-04-01_16bdecf",
+      "type": "head",
+      "time": 40,
+      "visualTime": 40,
+      "description": "randi_funconn_wildtype_2022-04-01_16bdecf"
+   },
+   {
       "id":"liefer_2021_mock",
       "name":"Liefer et al., 2021, Dataset 0 (L1)",
       "type":"head",
@@ -241,3 +249,4 @@
       ]
    }
  ]
+]
