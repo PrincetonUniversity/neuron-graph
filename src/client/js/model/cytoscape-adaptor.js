@@ -134,12 +134,10 @@ ModelPrototype.makeCytoscapeEdge = function(
     // Gap junction
     meanSyn = syns.length;
     width = Math.min(8, meanSyn * 1.5);
-  }  else if (edgeType === 4) {
+  } else if (edgeType === 4) {
     // Functional connection
     meanSyn = Math.abs(sum(syns) / syns.length);
     width = Math.max(1, 2 * Math.pow(meanSyn, 1 / 3) - 2);
-  } else {
-    console.error("Unknown edge type:", edgeType)
   }
 
   let label = datasets
