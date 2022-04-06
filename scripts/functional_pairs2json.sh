@@ -11,11 +11,14 @@ infile="$1"
 name="$infile"
 name=${name##*/}
 name=${name%.*}
+# The dataset ID is limited to 20 characters in length
+datasetid=`perl -e 'print(substr($ARGV[0],0,20))' "${name}"`
 time=$2
 
 TYP=4
-outfile="src/server/populate-db/raw-data/connections/${name}.json"
-tmpoutfile="${name}.json"
+# The json file name must match the dataset ID
+outfile="src/server/populate-db/raw-data/connections/${datasetid}.json"
+tmpoutfile="${datasetid}.json"
 dsfile=src/server/populate-db/raw-data/datasets.json
 dstmpfile=tmpdatasets.json
 
@@ -66,7 +69,7 @@ echo "JSON DONE                 "
 echo "[" > $dstmpfile
 cat >> $dstmpfile <<END_DS
    {
-      "id": "${name}",
+      "id": "${datasetid}",
       "name": "${name}",
       "type": "head",
       "time": ${time},

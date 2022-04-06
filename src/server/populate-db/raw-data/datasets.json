@@ -1,10 +1,10 @@
 [
    {
-      "id": "randi_funconn_wildtype_2022-04-01_16bdecf",
+      "id": "randi_funconn_wildty",
       "name": "randi_funconn_wildtype_2022-04-01_16bdecf",
       "type": "head",
-      "time": 40,
-      "visualTime": 40,
+      "time": 43,
+      "visualTime": 43,
       "description": "randi_funconn_wildtype_2022-04-01_16bdecf"
    },
    {
@@ -248,5 +248,4 @@
          }
       ]
    }
- ]
 ]
