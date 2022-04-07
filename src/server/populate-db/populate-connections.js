@@ -1,3 +1,5 @@
+let sum = arr => arr.reduce((a, b) => a + b, 0);
+
 let getCell2ClassMap = async dbConn => {
   let [cells, ] = await dbConn.query('SELECT name, class FROM neurons');
 
@@ -45,6 +47,11 @@ let populateConnections = async (dbConn, connectionsJSON) => {
     } 
 
     let synapseCount = syn.length;
+    if (type === 'functional') {
+      synapseCount = Math.round(sum(syn));
+    } else {
+      synapseCount = syn.length;
+    }
 
     // Skip gap junctions already counted in the reverse direction.
     if (

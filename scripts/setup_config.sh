@@ -81,7 +81,7 @@ CREATE TABLE connections (
   pre VARCHAR(30) NOT NULL,
   post VARCHAR(30) NOT NULL,
   type VARCHAR(20) NOT NULL,
-  synapses SMALLINT UNSIGNED NOT NULL,
+  synapses SMALLINT NOT NULL,
   CONSTRAINT pk_connections PRIMARY KEY (dataset_id, pre, post, type),
   CONSTRAINT idx_connections_dataset_id FOREIGN KEY (dataset_id) REFERENCES datasets(id),
   INDEX idx_connections_id (id),

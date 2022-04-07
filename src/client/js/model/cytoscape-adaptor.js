@@ -122,13 +122,22 @@ ModelPrototype.makeCytoscapeEdge = function(
   let classes = [];
 
   let syns = datasets.map(dataset => synapses[dataset] || 0);
-  let meanSyn = sum(syns) / syns.length;
+  let meanSyn;
   let width;
 
+  // Conversions from connections to cytoscape line width
   if (edgeType === 0) {
+    // Chemical synapse
+    meanSyn = syns.length;
     width = Math.max(1, 3 * Math.pow(meanSyn, 1 / 3) - 2);
-  } else {
+  } else if (edgeType === 2) {
+    // Gap junction
+    meanSyn = syns.length;
     width = Math.min(8, meanSyn * 1.5);
+  } else if (edgeType === 4) {
+    // Functional connection
+    meanSyn = Math.abs(sum(syns) / syns.length);
+    width = Math.max(1, 2 * Math.pow(meanSyn, 1 / 3) - 2);
   }
 
   let label = datasets
