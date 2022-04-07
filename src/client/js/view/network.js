@@ -257,7 +257,6 @@ class GraphView extends View2 {
 
       cy.edges('[type = 4]')
         .filter(function(ele) {
-          console.log("funconn data", ele.data());
           if (ele.data('weight') > 0) {
             return true;
           }

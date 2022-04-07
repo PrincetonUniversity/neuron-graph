@@ -138,7 +138,6 @@ ModelPrototype.makeCytoscapeEdge = function(
     // Functional connection
     meanSyn = sum(syns) / syns.length;
     width = Math.max(1, 2 * Math.pow(Math.abs(meanSyn), 1 / 3) - 2);
-    console.log(sourceId,targetId,"meanSyn:", meanSyn);
   }
 
   let label = datasets

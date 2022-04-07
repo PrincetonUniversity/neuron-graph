@@ -81,6 +81,44 @@
       &#edge-typ4 {
         @extend .icon-functional;
       }
+      &#edge-typ4-exc {
+        @extend .icon-functional-excitatory;
+      }
+    }
+  }
+
+  .subedges {
+    padding-left: 32px; /* size of :before to ensure */
+    text-indent: -32px; /* second line is indented */
+    margin-top: 2px;
+    li {
+      @extend %legend-item;
+      &::before {
+        @extend %legend-item-before;
+        line-height: 16px;
+        font-family: icomoon;
+      }
+      &#edge-typ2 {
+        @extend .icon-gapjunction;
+      }
+      &#edge-typ4 {
+        @extend .icon-functional;
+      }
+      &#edge-typ4-exc {
+        @extend .icon-functional-excitatory;
+      }
+    }
+  }
+
+  .noedges {
+    padding-left: 32px; /* size of :before to ensure */
+    text-indent: -32px; /* second line is indented */
+    margin-top: 2px;
+    li {
+      &::before {
+        line-height: 16px;
+        font-family: icomoon;
+      }
     }
   }
 }
@@ -103,6 +141,12 @@
   color: map-get($edge-colors, typ2);
 }
 #edge-typ4::before {
+  color: map-get($edge-colors, typ4);
+}
+#edge-typ4-exc::before {
+  color: map-get($edge-colors, typ4);
+}
+#edge-typ4-inh::before {
   color: map-get($edge-colors, typ4);
 }
 #edge-juvenile::before {

@@ -65,7 +65,13 @@
   content: '\f0ca';
 }
 .icon-functional::before {
+  content: '\ea0b';
+}
+.icon-functional-excitatory::before {
   content: '\f178';
+}
+.icon-functional-inhibitory::before {
+  content: '\ea0b';
 }
 
 /* Popup menu */
