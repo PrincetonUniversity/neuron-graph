@@ -192,6 +192,7 @@ class GraphView extends View2 {
       // Remove all bowing (dynamic: besideNeighbors and static: besideGjAlone)
       cy.edges().removeClass('innerTierWithGj');
       cy.edges().removeClass('outerTierWithGj');
+      cy.edges('[type = 4]').removeClass('excitatory').removeClass('inhibitory');
 
       // When there is a gap junction, make the inner tier be populated with the majority type
       // (synapse + functional), or synapses if full
@@ -253,6 +254,27 @@ class GraphView extends View2 {
           return false;
         })
         .addClass('outerTierWithGj');
+
+      cy.edges('[type = 4]')
+        .filter(function(ele) {
+          console.log("funconn data", ele.data);
+          if (ele.data('synapses') > 0) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('excitatory');
+
+      cy.edges('[type = 4]')
+        .filter(function(ele) {
+          if (ele.data('synapses') < 0) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('excitatory');
+
+      // If synapses is 0, then its neutral (not excitatory or inhibitory), so no arrowhead
 
       // Label nodes connected with gap junctions in order to efficiently update gap junction edges
       // that are stretched/shrinked as the node moves.

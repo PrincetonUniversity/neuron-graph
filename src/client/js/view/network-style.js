@@ -325,7 +325,6 @@ let cystyle = {
         'font-size': '18px',
         'z-index': 5,
         'curve-style': 'bezier',
-        'target-arrow-shape': 'triangle',
         'line-color': cytoscapeColors.coloursEdge['typ4'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
@@ -400,6 +399,18 @@ let cystyle = {
         'curve-style': 'bezier',
         'source-distance-from-node': 0,
         'target-distance-from-node': 0
+      }
+    },
+    {
+      selector: 'edge.excitatory',
+      css: {
+        'target-arrow-shape': 'triangle',
+      }
+    },
+    {
+      selector: 'edge.inhibitory',
+      css: {
+        'target-arrow-shape': 'tee'
       }
     },
     {
