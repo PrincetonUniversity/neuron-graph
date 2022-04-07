@@ -84,10 +84,13 @@
       &#edge-typ4-exc {
         @extend .icon-functional-excitatory;
       }
+      &#edge-typ4-inh {
+        @extend .icon-functional;
+      }
     }
   }
 
-  .subedges {
+  .edges-sub {
     padding-left: 32px; /* size of :before to ensure */
     text-indent: -32px; /* second line is indented */
     margin-top: 2px;
@@ -107,12 +110,15 @@
       &#edge-typ4-exc {
         @extend .icon-functional-excitatory;
       }
+      &#edge-typ4-inh {
+        @extend .icon-functional;
+      }
     }
   }
 
-  .noedges {
+  .edges-no {
     padding-left: 32px; /* size of :before to ensure */
-    text-indent: -32px; /* second line is indented */
+    text-indent: -64px; /* second line is indented */
     margin-top: 2px;
     li {
       &::before {

@@ -818,13 +818,21 @@ class GraphView extends View2 {
           row += 0.5;
         }
         let synapses;
+        let effect;
         if (id == 'edge-typ0') {
           synapses = [1, 10, 50];
         } else if (id == 'edge-typ2') {
           synapses = [3];
         } else if (id == 'edge-typ4') {
+          return;
+        } else if (id == 'edge-typ4-exc') {
           // 3 examples in the legend with thicknesses of 1, 10, & 50
-          synapses = [1, 10, 50];
+          synapses = [1, 10, 100];
+          effect = 'excitatory';
+        } else if (id == 'edge-typ4-inh') {
+          // 3 examples in the legend with thicknesses of 1, 10, & 50
+          synapses = [1, 10, 100];
+          effect = 'inhibitory';
         }
 
         let noEdgesWithAnnotations = (
@@ -857,8 +865,20 @@ class GraphView extends View2 {
             edge.type = 2;
           }
           // functional, guessing.
-          if (id == 'edge-typ4') {
+          if (id.startsWith('edge-typ4')) {
             edge.type = 4;
+            if (effect === 'inhibitory') {
+              edge.classes = ' inhibitory';
+            }
+            edge.width = Math.max(
+              2 * Math.pow(syn, 1 / 3) - 2,
+              1
+            ); /* TODO: this equation is defined twice*/
+            edge.label = syn;
+            edge.labelyshift = -7 - edge.width + 'px';
+            if (syn == 100) {
+              edge.labelxshift = '2.5px';
+            }
           }
           if (id == 'edge-not-classified') {
             edge.classes = ' not-classified';
@@ -925,7 +945,7 @@ class GraphView extends View2 {
           row += 0.5;
         }
         // functional, guessing.
-        if (id == 'edge-typ4') {
+        if (id.startsWith('edge-typ4')) {
           row += 0.5;
         }
 
