@@ -257,8 +257,8 @@ class GraphView extends View2 {
 
       cy.edges('[type = 4]')
         .filter(function(ele) {
-          console.log("funconn data", ele.data);
-          if (ele.data('synapses') > 0) {
+          console.log("funconn data", ele.data());
+          if (ele.data('weight') > 0) {
             return true;
           }
           return false;
@@ -267,12 +267,12 @@ class GraphView extends View2 {
 
       cy.edges('[type = 4]')
         .filter(function(ele) {
-          if (ele.data('synapses') < 0) {
+          if (ele.data('weight') < 0) {
             return true;
           }
           return false;
         })
-        .addClass('excitatory');
+        .addClass('inhibitory');
 
       // If synapses is 0, then its neutral (not excitatory or inhibitory), so no arrowhead
 

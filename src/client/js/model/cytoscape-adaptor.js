@@ -136,8 +136,9 @@ ModelPrototype.makeCytoscapeEdge = function(
     width = Math.min(8, meanSyn * 1.5);
   } else if (edgeType === 4) {
     // Functional connection
-    meanSyn = Math.abs(sum(syns) / syns.length);
-    width = Math.max(1, 2 * Math.pow(meanSyn, 1 / 3) - 2);
+    meanSyn = sum(syns) / syns.length;
+    width = Math.max(1, 2 * Math.pow(Math.abs(meanSyn), 1 / 3) - 2);
+    console.log(sourceId,targetId,"meanSyn:", meanSyn);
   }
 
   let label = datasets
@@ -203,7 +204,8 @@ ModelPrototype.makeCytoscapeEdge = function(
       type: edgeType,
       width,
       label,
-      longLabel
+      longLabel,
+      weight: meanSyn
     }
   };
 
