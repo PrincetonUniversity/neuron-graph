@@ -824,8 +824,8 @@ class GraphView extends View2 {
         } else if (id == 'edge-typ2') {
           synapses = [3];
         } else if (id == 'edge-typ4') {
-          // functional, not sure what this number means.
-          synapses = [3];
+          // 3 examples in the legend with thicknesses of 1, 10, & 50
+          synapses = [1, 10, 50];
         }
 
         let noEdgesWithAnnotations = (
