@@ -119,6 +119,9 @@ let populateConnections = async (dbConn, connectionsJSON) => {
     return [id, datasetId, pre, post, type, synapseCount];
   });
 
+  /* eslint-disable no-console */
+  console.log('Loading dataset: ' + connectionValues[0]);
+  /* eslint-enable no-console */
   await dbConn.query(
     'INSERT INTO connections (id, dataset_id, pre, post, type, synapses) VALUES ?',
     [connectionValues]

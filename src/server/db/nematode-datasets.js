@@ -1,6 +1,6 @@
 let queryDatasets = async connection => {
   const datasetsSql = `
-    SELECT id, collection, name, description, time, visual_time
+    SELECT id, collection, name, description, time, visual_time, datatypes
     FROM datasets
     ORDER BY id
   `;

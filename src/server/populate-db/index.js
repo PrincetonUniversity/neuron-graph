@@ -3,7 +3,7 @@
 const { connect } = require('../db');
 const { 
   cellList, 
-  datasetList, 
+  loadDatasetData, 
   loadConnectionData, 
   loadAnnotationData, 
   //loadTrajectoryData 
@@ -37,6 +37,7 @@ const depopulateDb = (conn) => {
 const populateDb = async (conn) => {
   const connectionsJSON = loadConnectionData();
   const annotationsJSON = loadAnnotationData();
+  const datasetsJSON = loadDatasetData();
   //const trajectoriesJSON = loadTrajectoryData();
 
   try {
@@ -47,7 +48,7 @@ const populateDb = async (conn) => {
     await populateCells(conn, cellList);
 
     console.log('populating datasets');
-    await populateDatasets(conn, datasetList);
+    await populateDatasets(conn, datasetsJSON);
 
     /*console.log('populating trajectories');
     await populateNeuronTrajectories(conn, trajectoriesJSON);*/

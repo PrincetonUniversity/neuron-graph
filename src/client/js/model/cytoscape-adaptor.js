@@ -121,7 +121,41 @@ ModelPrototype.makeCytoscapeEdge = function(
   let { synapses, annotations } = attr;
   let classes = [];
 
-  let syns = datasets.map(dataset => synapses[dataset] || 0);
+  let syns = datasets.filter(dataset => {
+    let datatypes = DataService.getDatasetInfo(database, dataset).datatypes.split(',');
+    // If the edge type is among the types contained in this dataset
+    for (let i = 0; i < datatypes.length; i++) {
+      let dt = datatypes[i];
+      let presentEdgeType;
+      if (dt === 'cs') {
+        presentEdgeType = 0;
+      } else if (dt === 'gj') {
+        presentEdgeType = 2;
+      } else if (dt === 'fc') {
+        presentEdgeType = 4;
+      } else {
+        let datasetName = DataService.getDatasetInfo(database, dataset).name;
+        throw 'Unknown edge type [' + dt + '] encountered in dataset ' + datasetName;
+      }
+      if (edgeType === presentEdgeType) {
+        return true;
+      }
+    }
+    return false;
+  }).map(dataset => synapses[dataset] || 0);
+
+  if (syns.length == 0) {
+    let datasetNames = datasets
+      .map(dataset => {
+        return DataService.getDatasetInfo(database, dataset).name;
+      })
+      .join(',');
+    throw (
+      'No synapses for edge type ' + edgeType + ' found in any of the datasets: [' + datasetNames +
+      ']'
+    );
+  }
+
   let meanSyn;
   let width;
 
