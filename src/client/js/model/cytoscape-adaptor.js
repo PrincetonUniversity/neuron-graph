@@ -156,21 +156,18 @@ ModelPrototype.makeCytoscapeEdge = function(
     );
   }
 
-  let meanSyn;
+  let meanSyn = sum(syns) / syns.length;
   let width;
 
   // Conversions from connections to cytoscape line width
   if (edgeType === 0) {
     // Chemical synapse
-    meanSyn = syns.length;
     width = Math.max(1, 3 * Math.pow(meanSyn, 1 / 3) - 2);
   } else if (edgeType === 2) {
     // Gap junction
-    meanSyn = syns.length;
     width = Math.min(8, meanSyn * 1.5);
   } else if (edgeType === 4) {
     // Functional connection
-    meanSyn = sum(syns) / syns.length;
     width = Math.max(1, 2 * Math.pow(Math.abs(meanSyn), 1 / 3) - 2);
   }
 
