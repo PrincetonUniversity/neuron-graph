@@ -74,7 +74,8 @@ cat >> $dstmpfile <<END_DS
       "type": "head",
       "time": ${time},
       "visualTime": ${time},
-      "description": "${name}"
+      "description": "${name}",
+      "datatypes": "fc"
    },
 END_DS
 grep -v '^.$' $dsfile >> $dstmpfile
