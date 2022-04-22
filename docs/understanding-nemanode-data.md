@@ -14,6 +14,7 @@ A dataset is associated with connections data, e.g. connections A,B, C are found
 - ```visual_time```: time to represent visually for the app
 - ```description```: description of the dataset
 - ```axes```: anatomical origin of each axis
+- ```datatypes```: comma-delimited connection types described in the dataset (e.g. "cs,gj,fc")
 It represents a nematode specimen at a specific development stage.
 
 ## Neuron data
@@ -52,23 +53,26 @@ Each connection is represented with the following attributes:
 - ```typ```: type of synaptic connection (int), can be either:
     ```0```: chemical synapse
     ```2```: electrical synapse (gap junction)
-- ```syn```: number of synapses that connection consists of (int)
+    ```4```: functional connection
+- ```syn```: list of synapse weights (int list)
 - ```ids```: each synapse has a unique ID. This data is currently not used.
+
+Gap junction and chemical synapse weights are ignored.  Weight is inferred by the list size.  Functional connection strength can be positive or negative.  Values are summed to compute the weight.
 
 
 ## Examples
 
 Neuron:
 ```json
- {
-  "inhead": 1,
-  "name": "ADAL",
-  "emb": 1,
-  "nt": "l",
-  "intail": 0,
-  "classes": "ADA",
-  "typ": "i"
- },
+  {
+    "inhead": 1,
+    "name": "ADAL",
+    "emb": 1,
+    "nt": "l",
+    "intail": 0,
+    "classes": "ADA",
+    "typ": "i"
+  },
 ```
 
 Connection:
@@ -107,6 +111,7 @@ Dataset:
     "time":60,
     "visualTime":50,
     "description":"Near-complete adult.<br /><i>White et al.</i>, compiled by Varshney et al., 2011",
-    "published":true
+    "published":true,
+    "datatypes":"cs,gj"
   }
 ```

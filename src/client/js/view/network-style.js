@@ -299,6 +299,7 @@ let cystyle = {
         'line-color': cytoscapeColors.coloursEdge['typ0'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ0'],
         color: 'black',
+        'control-point-step-size': 20,
 
         'text-outline-width': 2,
         'text-outline-color': cytoscapeColors.backgroundColor,
@@ -320,12 +321,20 @@ let cystyle = {
     {
       selector: 'edge[type = 4]',
       css: {
-        'curve-style': 'segments',
-        'target-arrow-shape': 'triangle',
+        width: 'data(width)',
+        'font-size': '18px',
+        'z-index': 5,
+        'curve-style': 'bezier',
         'line-color': cytoscapeColors.coloursEdge['typ4'],
         'target-arrow-color': cytoscapeColors.coloursEdge['typ4'],
         'source-arrow-color': cytoscapeColors.coloursEdge['typ4'],
-        'segment-distances': '0 -8 8 -8 8 0'
+        color: 'black',
+        'control-point-step-size': 20,
+
+        'text-outline-width': 2,
+        'text-outline-color': cytoscapeColors.backgroundColor,
+        'source-distance-from-node': 10,
+        'target-distance-from-node': 10
       }
     },
     {
@@ -356,9 +365,17 @@ let cystyle = {
       }
     },
     {
-      selector: 'edge.besideGj',
+      selector: 'edge.innerTierWithGj',
       css: {
-        'curve-style': 'unbundled-bezier'
+        'curve-style': 'unbundled-bezier',
+        'control-point-distances': '25 -25'
+      }
+    },
+    {
+      selector: 'edge.outerTierWithGj',
+      css: {
+        'curve-style': 'unbundled-bezier',
+        'control-point-distances': '50 -50'
       }
     },
     {
@@ -374,6 +391,26 @@ let cystyle = {
       css: {
         'target-arrow-shape': 'tee',
         'source-arrow-shape': 'tee'
+      }
+    },
+    {
+      selector: 'edge[type = 4]:loop',
+      css: {
+        'curve-style': 'bezier',
+        'source-distance-from-node': 0,
+        'target-distance-from-node': 0
+      }
+    },
+    {
+      selector: 'edge.excitatory',
+      css: {
+        'target-arrow-shape': 'triangle',
+      }
+    },
+    {
+      selector: 'edge.inhibitory',
+      css: {
+        'target-arrow-shape': 'tee'
       }
     },
     {

@@ -1,3 +1,5 @@
+let sum = arr => arr.reduce((a, b) => a + b, 0);
+
 let getCell2ClassMap = async dbConn => {
   let [cells, ] = await dbConn.query('SELECT name, class FROM neurons');
 
@@ -45,6 +47,11 @@ let populateConnections = async (dbConn, connectionsJSON) => {
     } 
 
     let synapseCount = syn.length;
+    if (type === 'functional') {
+      synapseCount = Math.round(sum(syn));
+    } else {
+      synapseCount = syn.length;
+    }
 
     // Skip gap junctions already counted in the reverse direction.
     if (
@@ -112,6 +119,9 @@ let populateConnections = async (dbConn, connectionsJSON) => {
     return [id, datasetId, pre, post, type, synapseCount];
   });
 
+  /* eslint-disable no-console */
+  console.log('Loading dataset: ' + connectionValues[0]);
+  /* eslint-enable no-console */
   await dbConn.query(
     'INSERT INTO connections (id, dataset_id, pre, post, type, synapses) VALUES ?',
     [connectionValues]

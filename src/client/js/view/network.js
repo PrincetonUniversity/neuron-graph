@@ -184,12 +184,96 @@ class GraphView extends View2 {
       cy.add(Object.values(newEdges));
 
       cy.startBatch();
-      // Label edges parallel to gap junctions to prevent overlaps.
-      cy.edges().removeClass('besideGj');
+
+      //
+      // When a gap junction is present, 2 tiers of unbundled-bezier are used to prevent overlaps.
+      //
+
+      // Remove all bowing (dynamic: besideNeighbors and static: besideGjAlone)
+      cy.edges().removeClass('innerTierWithGj');
+      cy.edges().removeClass('outerTierWithGj');
+      cy.edges('[type = 4]').removeClass('excitatory').removeClass('inhibitory');
+
+      // When there is a gap junction, make the inner tier be populated with the majority type
+      // (synapse + functional), or synapses if full
       cy.edges('[type = 2]')
         .parallelEdges()
+        .not(':loop')
         .filter('[type != 2]')
-        .addClass('besideGj');
+        .filter(function(ele) {
+          let numfc = 0;
+          let numcs = 0;
+          let tot = 0;
+          let nbrs = ele.parallelEdges();
+          for (let i = 0; i < nbrs.size(); i++) {
+            if (nbrs[i].data('type') === 0) {
+              numcs += 1;
+              tot += 1;
+            } else if (nbrs[i].data('type') === 4) {
+              numfc += 1;
+              tot += 1;
+            }
+          }
+          if (ele.data('type') == 0 && numcs == 2 && numfc == 1) {
+            return true;
+          } else if (ele.data('type') == 4 && numcs == 1 && numfc == 2) {
+            return true;
+          } else if (tot < 3) {
+            return true;
+          } else if (ele.data('type') === 0 && tot === 4) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('innerTierWithGj');
+
+      // When there is a gap junction, make the outer tier be populated with the minority type
+      // (synapse + functional), or functional connections if full
+      cy.edges('[type = 2]')
+        .parallelEdges()
+        .not(':loop')
+        .filter('[type != 2]')
+        .filter(function(ele) {
+          let numfc = 0;
+          let numcs = 0;
+          let nbrs = ele.parallelEdges();
+          for (let i = 0; i < nbrs.size(); i++) {
+            if (nbrs[i].data('type') === 0) {
+              numcs += 1;
+            } else if (nbrs[i].data('type') === 4) {
+              numfc += 1;
+            }
+          }
+          if (ele.data('type') === 4 && (numcs === 2 && numfc === 1)) {
+            return true;
+          } else if (ele.data('type') === 0 && (numcs === 1 && numfc === 2)) {
+            return true;
+          } else if (ele.data('type') === 4 && (numcs === 2 && numfc === 2)) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('outerTierWithGj');
+
+      cy.edges('[type = 4]')
+        .filter(function(ele) {
+          if (ele.data('weight') > 0) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('excitatory');
+
+      cy.edges('[type = 4]')
+        .filter(function(ele) {
+          if (ele.data('weight') < 0) {
+            return true;
+          }
+          return false;
+        })
+        .addClass('inhibitory');
+
+      // If synapses is 0, then its neutral (not excitatory or inhibitory), so no arrowhead
 
       // Label nodes connected with gap junctions in order to efficiently update gap junction edges
       // that are stretched/shrinked as the node moves.
@@ -734,13 +818,21 @@ class GraphView extends View2 {
           row += 0.5;
         }
         let synapses;
+        let effect;
         if (id == 'edge-typ0') {
           synapses = [1, 10, 50];
         } else if (id == 'edge-typ2') {
           synapses = [3];
         } else if (id == 'edge-typ4') {
-          // functional, not sure what this number means.
-          synapses = [3];
+          return;
+        } else if (id == 'edge-typ4-exc') {
+          // 3 examples in the legend with thicknesses of 1, 10, & 50
+          synapses = [1, 10, 100];
+          effect = 'excitatory';
+        } else if (id == 'edge-typ4-inh') {
+          // 3 examples in the legend with thicknesses of 1, 10, & 50
+          synapses = [1, 10, 100];
+          effect = 'inhibitory';
         }
 
         let noEdgesWithAnnotations = (
@@ -773,8 +865,20 @@ class GraphView extends View2 {
             edge.type = 2;
           }
           // functional, guessing.
-          if (id == 'edge-typ4') {
+          if (id.startsWith('edge-typ4')) {
             edge.type = 4;
+            if (effect === 'inhibitory') {
+              edge.classes = ' inhibitory';
+            }
+            edge.width = Math.max(
+              2 * Math.pow(syn, 1 / 3) - 2,
+              1
+            ); /* TODO: this equation is defined twice*/
+            edge.label = syn;
+            edge.labelyshift = -7 - edge.width + 'px';
+            if (syn == 100) {
+              edge.labelxshift = '2.5px';
+            }
           }
           if (id == 'edge-not-classified') {
             edge.classes = ' not-classified';
@@ -841,7 +945,7 @@ class GraphView extends View2 {
           row += 0.5;
         }
         // functional, guessing.
-        if (id == 'edge-typ4') {
+        if (id.startsWith('edge-typ4')) {
           row += 0.5;
         }
 

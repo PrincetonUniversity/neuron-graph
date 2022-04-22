@@ -121,14 +121,54 @@ ModelPrototype.makeCytoscapeEdge = function(
   let { synapses, annotations } = attr;
   let classes = [];
 
-  let syns = datasets.map(dataset => synapses[dataset] || 0);
+  let syns = datasets.filter(dataset => {
+    let datatypes = DataService.getDatasetInfo(database, dataset).datatypes.split(',');
+    // If the edge type is among the types contained in this dataset
+    for (let i = 0; i < datatypes.length; i++) {
+      let dt = datatypes[i];
+      let presentEdgeType;
+      if (dt === 'cs') {
+        presentEdgeType = 0;
+      } else if (dt === 'gj') {
+        presentEdgeType = 2;
+      } else if (dt === 'fc') {
+        presentEdgeType = 4;
+      } else {
+        let datasetName = DataService.getDatasetInfo(database, dataset).name;
+        throw 'Unknown edge type [' + dt + '] encountered in dataset ' + datasetName;
+      }
+      if (edgeType === presentEdgeType) {
+        return true;
+      }
+    }
+    return false;
+  }).map(dataset => synapses[dataset] || 0);
+
+  if (syns.length == 0) {
+    let datasetNames = datasets
+      .map(dataset => {
+        return DataService.getDatasetInfo(database, dataset).name;
+      })
+      .join(',');
+    throw (
+      'No synapses for edge type ' + edgeType + ' found in any of the datasets: [' + datasetNames +
+      ']'
+    );
+  }
+
   let meanSyn = sum(syns) / syns.length;
   let width;
 
+  // Conversions from connections to cytoscape line width
   if (edgeType === 0) {
+    // Chemical synapse
     width = Math.max(1, 3 * Math.pow(meanSyn, 1 / 3) - 2);
-  } else {
+  } else if (edgeType === 2) {
+    // Gap junction
     width = Math.min(8, meanSyn * 1.5);
+  } else if (edgeType === 4) {
+    // Functional connection
+    width = Math.max(1, 2 * Math.pow(Math.abs(meanSyn), 1 / 3) - 2);
   }
 
   let label = datasets
@@ -194,7 +234,8 @@ ModelPrototype.makeCytoscapeEdge = function(
       type: edgeType,
       width,
       label,
-      longLabel
+      longLabel,
+      weight: meanSyn
     }
   };
 
