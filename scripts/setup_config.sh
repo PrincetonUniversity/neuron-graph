@@ -46,6 +46,7 @@ CREATE TABLE datasets (
   description TEXT NOT NULL,
   time SMALLINT NOT NULL,
   visual_time SMALLINT NOT NULL,
+  datatypes VARCHAR(8) NOT NULL,
   CONSTRAINT pk_datasets PRIMARY KEY (id),
   INDEX idx_datasets_id (id),
   INDEX idx_datasets_collection (collection)

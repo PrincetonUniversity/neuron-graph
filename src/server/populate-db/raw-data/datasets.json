@@ -5,7 +5,8 @@
       "type": "head",
       "time": 43,
       "visualTime": 43,
-      "description": "randi_funconn_wildtype_2022-04-01_16bdecf"
+      "description": "randi_funconn_wildtype_2022-04-01_16bdecf",
+      "datatypes": "fc"
    },
    {
       "id":"liefer_2021_mock",
@@ -13,7 +14,8 @@
       "type":"head",
       "time":50,
       "visualTime":51.5,
-      "description":"Mock functional data for Liefer lab, 2021"
+      "description":"Mock functional data for Liefer lab, 2021",
+      "datatypes": "fc"
    },
    {
       "id": "white_1986_whole",

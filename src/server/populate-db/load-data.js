@@ -17,6 +17,36 @@ const TRAJECTORIES_DATA_PATH = path.resolve(
 const cellList = require('./raw-data/neurons.json');
 const datasetList = require('./raw-data/datasets.json');
 
+let loadDatasetData = () => {
+  datasetList.forEach(d => {
+    if (d.datatypes === undefined || !d.datatypes) {
+      // Default to the legacy types, i.e. assume functional connections are not present unless
+      // specified
+      d.datatypes = 'cs,gj';
+    } else {
+      // Make sure the types are in alphabetical order
+      d.datatypes = d.datatypes
+        .split(',')
+        .filter(typestr => {
+          if (typestr !== 'cs' && typestr !== 'gj' && typestr !== 'fc') {
+            /* eslint-disable no-console */
+            console.warn(
+              'Invalid datatype:', typestr, 'Must be one of [cs,gj,fc] (i.e. chemical synapse, ',
+              'gap junction, functional connection).  Skipping.'
+            );
+            /* eslint-enable no-console */
+            return false;
+          }
+          return true;
+        })
+        .sort()
+        .join(',');
+    }
+  });
+
+  return datasetList;
+};
+
 // take the files in ./raw-data/connections and combine them into one list
 // appending dataset data to each connection
 let loadConnectionData = () => {
@@ -134,7 +164,7 @@ let loadTrajectoryData = () => {
 
 module.exports = {
   cellList,
-  datasetList,
+  loadDatasetData,
   loadConnectionData,
   loadAnnotationData,
   loadTrajectoryData

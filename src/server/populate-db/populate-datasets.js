@@ -6,12 +6,13 @@ let populateDatasets = async (connection, datasets) => {
     'name',
     'description',
     'time',
-    'visual_time'
+    'visual_time',
+    'datatypes'
   ];
 
   let values = datasets.map(dataset => {
-    let { id, type, name, description, time, visualTime } = dataset;
-    return [id, type, name, description, time, visualTime];
+    let { id, type, name, description, time, visualTime, datatypes } = dataset;
+    return [id, type, name, description, time, visualTime, datatypes];
   });
 
   await connection.query(
