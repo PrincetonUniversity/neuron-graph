@@ -373,7 +373,25 @@
       "description": "L4 larva legacy<br /><i>White et al., 1986</i><br />Muscles: <i>Zhen lab, 2018</i>",
       "time": 40,
       "visual_time": 40
-    }
+    },
+    {
+      "id": "funconn_wild",
+      "collection": "head",
+      "name": "FWT",
+      "description": "Functional wildtype <br /><i>Liefer Lab, 2022</i>",
+      "time": 43,
+      "visual_time": 43,
+      "datatypes": "fc"
+    },
+    {
+      "id": "funconn_unc31",
+      "collection": "unc31",
+      "name": "FMU",
+      "description": "Functional mutant unc31 <br /><i>Liefer Lab, 2022</i>",
+      "time": 43,
+      "visual_time": 43,
+      "datatypes": "fc"
+    }    
   ],
   "cells": [
     {

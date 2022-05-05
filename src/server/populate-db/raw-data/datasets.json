@@ -1,20 +1,20 @@
 [
    {
+      "id": "randi_funconn_unc31",
+      "name": "randi_funconn_unc31_2022-05-04",
+      "type": "unc31",
+      "time": 43,
+      "visualTime": 43,
+      "description": "randi_funconn_unc31_2022-05-04",
+      "datatypes": "fc"
+   },
+   {
       "id": "randi_funconn_wildty",
       "name": "randi_funconn_wildtype_2022-04-01_16bdecf",
       "type": "head",
       "time": 43,
       "visualTime": 43,
       "description": "randi_funconn_wildtype_2022-04-01_16bdecf",
-      "datatypes": "fc"
-   },
-   {
-      "id":"liefer_2021_mock",
-      "name":"Liefer et al., 2021, Dataset 0 (L1)",
-      "type":"head",
-      "time":50,
-      "visualTime":51.5,
-      "description":"Mock functional data for Liefer lab, 2021",
       "datatypes": "fc"
    },
    {
