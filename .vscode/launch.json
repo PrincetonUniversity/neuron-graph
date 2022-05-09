@@ -5,8 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "edge",
-            "version": "stable",
+            "type": "pwa-msedge",
             "request": "launch",
             "name": "Launch Edge against localhost",
             "url": "http://localhost:3000",

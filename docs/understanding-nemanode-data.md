@@ -9,12 +9,13 @@ A dataset is associated with connections data, e.g. connections A,B, C are found
 
 - ```name```: name of the dataset
 - ```id```: id of the dataset
-- ```type```: region that the dataset captures.  one of 'head', 'tail', or 'complete'
+- ```type```: dataset collection. one of 'head', 'tail', 'complete', or 'unc31' (mutant head data)
 - ```time```: the age of the specimen in hours e.g. 15
 - ```visual_time```: time to represent visually for the app
 - ```description```: description of the dataset
 - ```axes```: anatomical origin of each axis
 - ```datatypes```: comma-delimited connection types described in the dataset (e.g. "cs,gj,fc")
+- 
 It represents a nematode specimen at a specific development stage.
 
 ## Neuron data

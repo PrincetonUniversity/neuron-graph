@@ -9,7 +9,7 @@ class CellInfo {
     this.nt = {};
     this.type = {};
     this.emb = {};
-    this.validNodes = { complete: [], head: [], tail: [] };
+    this.validNodes = { complete: [], head: [], tail: [], unc31: []};
     this.incompleteNodes = {
       complete: [],
       head: [
@@ -78,6 +78,45 @@ class CellInfo {
         'PVW',
         'VAn',
         'VDn'
+      ],
+      unc31: [
+        'ADA',
+        'ADE',
+        'ALA',
+        'AQR',
+        'AVA',
+        'AVB',
+        'AVD',
+        'AVE',
+        'AVF',
+        'AVG',
+        'AVH',
+        'AVJ',
+        'AVK',
+        'AVL',
+        'AVM',
+        'BDU',
+        'DVA',
+        'DVC',
+        'FLP',
+        'HSN',
+        'PLN',
+        'PVC',
+        'PVN',
+        'PVP',
+        'PVQ',
+        'PVR',
+        'PVT',
+        'RID',
+        'RIF',
+        'RIG',
+        'RIP',
+        'RMG',
+        'SDQ',
+        'SIA',
+        'SIB',
+        'SMB',
+        'SMD'  
       ]
     };
 
@@ -115,6 +154,8 @@ class CellInfo {
     if (inhead) {
       this.validNodes['head'].push(cell);
       this.validNodes['head'].push(cls);
+      this.validNodes['unc31'].push(cell);
+      this.validNodes['unc31'].push(cls);
     }
 
     if (intail) {
