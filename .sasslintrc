@@ -28,7 +28,6 @@
     "no-vendor-prefixes": 2,
 
     "no-important": 1,
-    "postcss-safe-important
     "no-color-literals": 1,
     "no-mergeable-selectors": 1,
     "hex-notation": 1,
