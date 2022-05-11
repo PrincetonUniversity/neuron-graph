@@ -22,3 +22,7 @@ db.sql
 # Test files
 *.log
 /coverage
+
+### VisualStudioCode ###
+.vscode/
+

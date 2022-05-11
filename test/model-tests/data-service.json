@@ -378,7 +378,7 @@
       "id": "funconn_wild",
       "collection": "head",
       "name": "FWT",
-      "description": "Functional wildtype <br /><i>Liefer Lab, 2022</i>",
+      "description": "Functional wildtype <br /><i>Randi et al., 2022</i>",
       "time": 43,
       "visual_time": 43,
       "datatypes": "fc"
@@ -387,7 +387,7 @@
       "id": "funconn_unc31",
       "collection": "unc31",
       "name": "FMU",
-      "description": "Functional mutant unc31 <br /><i>Liefer Lab, 2022</i>",
+      "description": "Functional mutant unc31 <br /><i>Randi et al., 2022</i>",
       "time": 43,
       "visual_time": 43,
       "datatypes": "fc"
