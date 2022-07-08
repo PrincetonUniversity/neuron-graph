@@ -1,21 +1,21 @@
 [
    {
       "id": "randi_funconn_unc31",
-      "name": "randi_funconn_unc31_2022-05-04",
+      "name": "randi_funconn_unc31_2022-06-30_0748214",
       "type": "unc31",
-      "time": 43,
-      "visualTime": 43,
-      "description": "randi_funconn_unc31_2022-05-04",
-      "datatypes": "fc"
+      "time": 25,
+      "visualTime": 25,
+      "description": "randi_funconn_unc31_2022-06-30_0748214",
+      "datatypes": "fc" 
    },
    {
       "id": "randi_funconn_wildty",
-      "name": "randi_funconn_wildtype_2022-04-01_16bdecf",
+      "name": "randi_funconn_wildtype_2022-06-30_0748214",
       "type": "head",
-      "time": 43,
-      "visualTime": 43,
-      "description": "randi_funconn_wildtype_2022-04-01_16bdecf",
-      "datatypes": "fc"
+      "time": 25,
+      "visualTime": 25,
+      "description": "randi_funconn_wildtype_2022-06-30_0748214",
+      "datatypes": "fc" 
    },
    {
       "id": "white_1986_whole",

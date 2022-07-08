@@ -11,6 +11,9 @@ infile="$1"
 name="$infile"
 name=${name##*/}
 name=${name%.*}
+type="head"
+[[ $name =~ unc31 ]] && type="unc31"
+
 # The dataset ID is limited to 20 characters in length
 datasetid=`perl -e 'print(substr($ARGV[0],0,20))' "${name}"`
 time=$2
@@ -71,10 +74,11 @@ cat >> $dstmpfile <<END_DS
    {
       "id": "${datasetid}",
       "name": "${name}",
-      "type": "head",
+      "type": "${type}",
       "time": ${time},
       "visualTime": ${time},
-      "description": "${name}"
+      "description": "${name}",
+      "datatypes": "fc" 
    },
 END_DS
 grep -v '^.$' $dsfile >> $dstmpfile
