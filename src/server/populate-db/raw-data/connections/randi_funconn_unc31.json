@@ -34,6 +34,14 @@
   },
   {
     "pre": "ADFL",
+    "post": "SMBVL",
+    "typ": 4,
+    "syn": [
+      -21
+    ]
+  },
+  {
+    "pre": "ADFL",
     "post": "SMDVR",
     "typ": 4,
     "syn": [
@@ -126,6 +134,14 @@
     "typ": 4,
     "syn": [
       76
+    ]
+  },
+  {
+    "pre": "AIBL",
+    "post": "IL2L",
+    "typ": 4,
+    "syn": [
+      -26
     ]
   },
   {
@@ -381,7 +397,7 @@
     "post": "RMDDR",
     "typ": 4,
     "syn": [
-      15
+      16
     ]
   },
   {
@@ -389,7 +405,7 @@
     "post": "RMDR",
     "typ": 4,
     "syn": [
-      15
+      14
     ]
   },
   {
@@ -498,10 +514,18 @@
   },
   {
     "pre": "ASHR",
+    "post": "AWBL",
+    "typ": 4,
+    "syn": [
+      10
+    ]
+  },
+  {
+    "pre": "ASHR",
     "post": "AWBR",
     "typ": 4,
     "syn": [
-      17
+      22
     ]
   },
   {
@@ -542,6 +566,14 @@
     "typ": 4,
     "syn": [
       -18
+    ]
+  },
+  {
+    "pre": "ASJR",
+    "post": "RMDDL",
+    "typ": 4,
+    "syn": [
+      16
     ]
   },
   {
@@ -754,6 +786,14 @@
   },
   {
     "pre": "AVJR",
+    "post": "AUAR",
+    "typ": 4,
+    "syn": [
+      10
+    ]
+  },
+  {
+    "pre": "AVJR",
     "post": "FLPL",
     "typ": 4,
     "syn": [
@@ -773,7 +813,15 @@
     "post": "RIVR",
     "typ": 4,
     "syn": [
-      27
+      25
+    ]
+  },
+  {
+    "pre": "AVJR",
+    "post": "RMDDR",
+    "typ": 4,
+    "syn": [
+      14
     ]
   },
   {
@@ -798,14 +846,6 @@
     "typ": 4,
     "syn": [
       -22
-    ]
-  },
-  {
-    "pre": "AVKL",
-    "post": "SMBVL",
-    "typ": 4,
-    "syn": [
-      19
     ]
   },
   {
@@ -837,7 +877,7 @@
     "post": "AFDL",
     "typ": 4,
     "syn": [
-      22
+      32
     ]
   },
   {
@@ -853,7 +893,7 @@
     "post": "AWBR",
     "typ": 4,
     "syn": [
-      11
+      15
     ]
   },
   {
@@ -885,7 +925,7 @@
     "post": "SMBVL",
     "typ": 4,
     "syn": [
-      -14
+      -29
     ]
   },
   {
@@ -930,14 +970,6 @@
   },
   {
     "pre": "AWBR",
-    "post": "M3L",
-    "typ": 4,
-    "syn": [
-      -15
-    ]
-  },
-  {
-    "pre": "AWBR",
     "post": "RMDVR",
     "typ": 4,
     "syn": [
@@ -949,7 +981,7 @@
     "post": "SAADL",
     "typ": 4,
     "syn": [
-      22
+      19
     ]
   },
   {
@@ -1090,14 +1122,6 @@
   },
   {
     "pre": "DA1",
-    "post": "AUAR",
-    "typ": 4,
-    "syn": [
-      -13
-    ]
-  },
-  {
-    "pre": "DA1",
     "post": "DB1",
     "typ": 4,
     "syn": [
@@ -1121,11 +1145,27 @@
     ]
   },
   {
+    "pre": "DA1",
+    "post": "IL1VL",
+    "typ": 4,
+    "syn": [
+      10
+    ]
+  },
+  {
     "pre": "DB1",
     "post": "DB2",
     "typ": 4,
     "syn": [
       27
+    ]
+  },
+  {
+    "pre": "DB1",
+    "post": "I2R",
+    "typ": 4,
+    "syn": [
+      -28
     ]
   },
   {
@@ -1150,14 +1190,6 @@
     "typ": 4,
     "syn": [
       -34
-    ]
-  },
-  {
-    "pre": "DB2",
-    "post": "SMBVL",
-    "typ": 4,
-    "syn": [
-      -18
     ]
   },
   {
@@ -1189,7 +1221,7 @@
     "post": "NSML",
     "typ": 4,
     "syn": [
-      101
+      99
     ]
   },
   {
@@ -1642,6 +1674,14 @@
   },
   {
     "pre": "OLQVL",
+    "post": "AIML",
+    "typ": 4,
+    "syn": [
+      -13
+    ]
+  },
+  {
+    "pre": "OLQVL",
     "post": "SIBVL",
     "typ": 4,
     "syn": [
@@ -1842,6 +1882,14 @@
   },
   {
     "pre": "RIVR",
+    "post": "IL1DR",
+    "typ": 4,
+    "syn": [
+      -35
+    ]
+  },
+  {
+    "pre": "RIVR",
     "post": "SAAVR",
     "typ": 4,
     "syn": [
@@ -1898,6 +1946,14 @@
   },
   {
     "pre": "RMDL",
+    "post": "ADLR",
+    "typ": 4,
+    "syn": [
+      21
+    ]
+  },
+  {
+    "pre": "RMDL",
     "post": "AIMR",
     "typ": 4,
     "syn": [
@@ -1926,14 +1982,6 @@
     "typ": 4,
     "syn": [
       -19
-    ]
-  },
-  {
-    "pre": "RMDL",
-    "post": "SMBVL",
-    "typ": 4,
-    "syn": [
-      14
     ]
   },
   {
@@ -2401,6 +2449,14 @@
     ]
   },
   {
+    "pre": "URYDR",
+    "post": "SMBVL",
+    "typ": 4,
+    "syn": [
+      75
+    ]
+  },
+  {
     "pre": "URYVL",
     "post": "AVJL",
     "typ": 4,
@@ -2453,7 +2509,7 @@
     "post": "RMDDR",
     "typ": 4,
     "syn": [
-      60
+      53
     ]
   },
   {
