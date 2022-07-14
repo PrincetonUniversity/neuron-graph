@@ -441,7 +441,7 @@ class Controller extends EventEmitter {
     let allDatasets = DataService.getDatasetList(database);
     let datasets = intersection(allDatasets, state['datasets'] || []);
     if (datasets.length === 0) {
-      datasets = (database == 'head') ? ['witvliet_2020_7', 'witvliet_2020_8', 'randi_funconn_wildty'] : allDatasets;
+      datasets = (database == 'head') ? ['randi_funconn_wildty'] : allDatasets;
     }
     let nodeColor = state['nodeColor'] || 'type';
     let layout = state['layout'] || 'concentric';
