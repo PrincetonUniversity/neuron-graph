@@ -1,10 +1,10 @@
 {
-  "name": "nemanode",
+  "name": "funconn",
   "version": "1.0.0",
   "license": "CC-BY-NC-ND-4.0",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:dwitvliet/NemaNode.git"
+    "url": "git+ssh://git@github.com:PrincetonUniversity/neuron-graph.git"
   },
   "engines": {
     "node": ">=11.15.0 <16.0.0",

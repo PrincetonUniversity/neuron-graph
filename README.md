@@ -1,6 +1,6 @@
-# NemaNode
+# FunCoNN (BETA)
 
-Interactive map of nervous system wiring in the nematode _C. elegans_. Live at [NemaNode.org](https://nemanode.org/).
+Interactive map of nervous system wiring in the nematode _C. elegans_. Live at [FunCoNN.princeton.edu](https://funconn.princeton.edu/).
 
 ## Required software
 - [Node.js](https://nodejs.org/en/) >= 11.15.0
@@ -12,7 +12,7 @@ Interactive map of nervous system wiring in the nematode _C. elegans_. Live at [
 
 1. Setup MySQL if first-time use: `sudo mysql_secure_installation`
 2. Install app dependencies by running `npm install`
-3. Setup MySQL user and database: `scripts/setup_config.sh nemanode nemanode_user password | sudo mysql`
+3. Setup MySQL user and database: `scripts/setup_config.sh funconn funconn_user password | sudo mysql`
 4. Populate database: `npm run populate-database`
 
 
@@ -27,6 +27,6 @@ Once setup is completed, you will be able to run the following commands in this 
 
 ## Documentation
 For more information on how to do various things read the documentation
-- [Understanding the data used in nemanode](docs/understanding-nemanode-data.md)
-- [Adding new data to nemanode](docs/adding-new-data.md)
+- [Understanding the data used in funconn](docs/understanding-funconn-data.md)
+- [Adding new data to funconn](docs/adding-new-data.md)
 - [Deployment to AWS](docs/deployment-to-aws.md)

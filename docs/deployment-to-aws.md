@@ -4,9 +4,9 @@
 1. ssh to <LINUX_SERVER>
 2. `sudo apt install mysql`
 3. `sudo mysql_secure_installation`
-4. `git clone git@github.com:dwitvliet/NemaNode.git`
-5. `cd NemaNode`
-6. Setup config file: `scripts/setup_config.sh nemanode nemanode_user password | sudo mysql`
+4. `git clone git@github.com:PrincetonUniversity/neuron-graph.git`
+5. `cd neuron-graph`
+6. Setup config file: `scripts/setup_config.sh funconn funconn_user password | sudo mysql`
 7. Add google analytics to `config.ini`
 8. Populate database: `npm run populate-database`
 9. build the client by running `npm run build-prod`
@@ -27,7 +27,7 @@
 ## Updating AWS Lightsail instance
 
 1. ssh to <LINUX_SERVER>
-2. `cd NemaNode`
+2. `cd neuron-graph`
 3. `git pull`
 4. If there are dependency changes: `rm -rf node_modules; npm install`
 5. If there are database changes: `npm run populate-database`
