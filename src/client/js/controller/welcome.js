@@ -63,7 +63,7 @@ class Welcome {
         this.view.help.setWelcomeContent(
           'FunCoNN (Beta)',
           [
-            '<b>Welcome to FuNCoNN (Beta): Functional Connectivity on NemaNode</b>',
+            '<b>Welcome to FunCoNN (Beta): Functional Connectivity on NemaNode</b>',
             '<p>',
             'This is an interactive browser of functional connectivity measurements of',
             '<i>C. elegans</i> overlaid on select connectomics data using the software package',
