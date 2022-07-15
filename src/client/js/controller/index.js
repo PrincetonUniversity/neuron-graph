@@ -2,6 +2,7 @@ const { intersection } = require('../util');
 
 const EventEmitter = require('../EventEmitter');
 const Tour = require('./tour');
+const Welcome = require('./welcome');
 
 const DataService = require('../data-service');
 
@@ -299,11 +300,16 @@ let bindPopupMenuEvents = ({ model, view }) => {
 };
 
 let bindHelpEvents = ({ view, controller }) => {
+  let welcome = new Welcome(view, controller);
   let tour = new Tour(view, controller);
 
-  let hideImmatureTour = () =>
-    tour.isRunning() && tour.atFirstStep() ? tour.stop() : null;
-  let showImmatureTour = () => (tour.atFirstStep() ? tour.start() : null);
+  // let hideImmatureTour = () =>
+  //   tour.isRunning() && tour.atFirstStep() ? tour.stop() : null;
+  
+  // let showImmatureTour = () => (tour.atFirstStep() ? tour.start() : null);
+
+  let hideWelcome = () => welcome.isRunning() ? welcome.stop() : null;
+  let showWelcome = () => welcome.isRunning() ? null : !welcome.wasDismissed() && welcome.start();
 
   view.help
     .on('startTour', function() {
@@ -317,14 +323,30 @@ let bindHelpEvents = ({ view, controller }) => {
     })
     .on('nextTourStep', function() {
       tour.nextStep();
+    })
+    .on('startWelcome', function() {
+      view.help.hide();
+      controller.hideOpenUI();
+      welcome.start();
+    })
+    .on('endWelcome', function() {
+      controller.hideOpenUI();
+      welcome.end();
     });
 
   view.searchbar.on('inputChanged focusin', inputs => {
-    inputs.length === 0 ? showImmatureTour() : hideImmatureTour();
+    inputs.length === 0 ? showWelcome() : hideWelcome();
   });
+    
+  view.options.on('openSettings', () => hideWelcome());
+  view.graph.on('backgroundClick', () => hideWelcome());
+  
+  // view.searchbar.on('inputChanged focusin', inputs => {
+  //   inputs.length === 0 ? showImmatureTour() : hideImmatureTour();
+  // });
 
-  view.options.on('openSettings', () => hideImmatureTour());
-  view.graph.on('backgroundClick', () => hideImmatureTour());
+  // view.options.on('openSettings', () => hideImmatureTour());
+  // view.graph.on('backgroundClick', () => hideImmatureTour());
 };
 
 let bindHiddenEvents = ({ view, model }) => {

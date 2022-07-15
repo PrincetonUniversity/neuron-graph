@@ -22,6 +22,10 @@ class HelpView extends BaseView {
     this.$tourButtonDone = this.$tour.find('.done');
     this.$tourProgress = this.$tour.find('.progress');
 
+    this.$welcome = $('#welcome');
+    this.$welcomeTitle = this.$welcome.find('h1');
+    this.$welcomeBody = this.$welcome.find('.body');
+
     this.mouseOutsideBody = false;
     this.lastPositionLeft = 0;
     this.lastPositionTop = 0;
@@ -57,6 +61,10 @@ class HelpView extends BaseView {
       this.emit('nextTourStep');
       e.stopPropagation(); //prevent bubbling to inactive select boxes.
     });
+
+    $('#show-welcome').click(() => this.emit('startWelcome'));
+
+    $('#welcome .close, #welcome .done').click(() => this.emit('endWelcome'));
 
     this.$arrowBack.click(() => this.showMenu());
 
@@ -259,6 +267,63 @@ class HelpView extends BaseView {
   hideTour() {
     this.$tour.hide();
   }
+
+  setWelcomeContent(title, body) {
+    this.$welcomeTitle.text(title);
+    this.$welcomeBody.html('<p>' + body.join('</p><p>') + '</p>');
+  }
+
+  showWelcome(coordinate, position) {
+    let { $welcome } = this;
+
+    const arrowWidth = 20;
+    const distanceToArrow = 35;
+    let containerWidth = $welcome.width();
+    //let containerHeight = $welcome.height();
+
+    $welcome.hide();
+    // If vertical position is outside viewport, scroll the options sidebar.
+    let currentScroll = $('#settings').scrollTop();
+    let offset = coordinate.y - window.innerHeight;
+
+    if (coordinate.y < 0) {
+      $('#settings').animate(
+        { scrollTop: currentScroll + coordinate.y - 50 },
+        200
+      );
+      coordinate.y = 50;
+    }
+
+    if (offset > 0) {
+      $('#settings').animate(
+        { scrollTop: currentScroll + offset + distanceToArrow },
+        200
+      );
+      coordinate.y -= offset + distanceToArrow;
+    }
+
+    // If horizontal position is outside viewport, push it back in.
+    if (
+      coordinate.x + containerWidth > window.innerWidth &&
+      position.startsWith('right')
+    ) {
+      coordinate.x = window.innerWidth - containerWidth - arrowWidth;
+    }
+
+    // Set position.
+    if (position == 'below-right') {
+      $welcome.css('left', coordinate.x - distanceToArrow);
+      $welcome.css('top', coordinate.y + arrowWidth);
+    } else {
+      // should never reach here but could throw an error or something, someday
+    }
+    $welcome.fadeIn('fast');
+  }
+
+  hideWelcome() {
+    this.$welcome.hide();
+  }
+
 }
 
 module.exports = HelpView;
