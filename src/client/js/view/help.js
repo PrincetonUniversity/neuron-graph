@@ -62,9 +62,9 @@ class HelpView extends BaseView {
       e.stopPropagation(); //prevent bubbling to inactive select boxes.
     });
 
-    $('#show-welcome').on('click', () => this.emit('startWelcome'));
+    $('#show-welcome').click(() => this.emit('startWelcome'));
 
-    $('#welcome .close #welcome .done').on('click', () => this.emit('endWelcome'));
+    $('#welcome .close, #welcome .done').click(() => this.emit('endWelcome'));
 
     this.$arrowBack.click(() => this.showMenu());
 

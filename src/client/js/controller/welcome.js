@@ -6,10 +6,15 @@ class Welcome {
     this.controller = controller;
 
     this._isRunning;
+    this._wasDismissed = false;
   }
 
   isRunning() {
     return this._isRunning;
+  }
+
+  wasDismissed() {
+    return this._wasDismissed;
   }
 
   start() {
@@ -25,6 +30,7 @@ class Welcome {
 
   stop() {
     this._isRunning = false;
+    this._wasDismissed = true;
     this.view.help.hideWelcome();
     this.view.popup.toggleHighlight('split', false);
 

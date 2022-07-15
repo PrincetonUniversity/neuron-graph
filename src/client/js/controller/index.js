@@ -309,7 +309,7 @@ let bindHelpEvents = ({ view, controller }) => {
   // let showImmatureTour = () => (tour.atFirstStep() ? tour.start() : null);
 
   let hideWelcome = () => welcome.isRunning() ? welcome.stop() : null;
-  let showWelcome = () => welcome.isRunning() ? null : welcome.start();
+  let showWelcome = () => welcome.isRunning() ? null : !welcome.wasDismissed() && welcome.start();
 
   view.help
     .on('startTour', function() {
