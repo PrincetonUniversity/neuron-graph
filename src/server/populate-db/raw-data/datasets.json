@@ -1,7 +1,7 @@
 [
    {
       "id": "randi_funconn_unc31",
-      "name": "randi_funconn_unc31_2022-07-13_b08285f",
+      "name": "Randi et al., 2022. Functional connectivity data (unc31)",
       "type": "unc31",
       "time": 25,
       "visualTime": 25,
@@ -10,7 +10,7 @@
    },
    {
       "id": "randi_funconn_wildty",
-      "name": "randi_funconn_wildtype_2022-07-13_b08285f",
+      "name": "Randi et al., 2022. Functional connectivity data (WT)",
       "type": "head",
       "time": 25,
       "visualTime": 25,
