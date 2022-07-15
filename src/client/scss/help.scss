@@ -272,5 +272,32 @@
 
 }
 
+#welcome {
+  display: none;
+  background-color: $background;
+  position: absolute;
+  width: 560px;
+  color: $text-color;
+  z-index: 900;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+
+  .close {
+    float: right;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 15px;
+  }
+  h1 {
+    padding: 15px 15px 15px 15px;
+    font-size: 18px;
+  }
+  p {
+    padding: 3px 15px 3px 15px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
+
 
 
