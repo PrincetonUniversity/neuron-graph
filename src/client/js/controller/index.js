@@ -303,10 +303,10 @@ let bindHelpEvents = ({ view, controller }) => {
   let welcome = new Welcome(view, controller);
   let tour = new Tour(view, controller);
 
-  let hideImmatureTour = () =>
-    tour.isRunning() && tour.atFirstStep() ? tour.stop() : null;
+  // let hideImmatureTour = () =>
+  //   tour.isRunning() && tour.atFirstStep() ? tour.stop() : null;
   
-  let showImmatureTour = () => (tour.atFirstStep() ? tour.start() : null);
+  // let showImmatureTour = () => (tour.atFirstStep() ? tour.start() : null);
 
   let hideWelcome = () => welcome.isRunning() ? welcome.stop() : null;
   let showWelcome = () => welcome.isRunning() ? null : welcome.start();
