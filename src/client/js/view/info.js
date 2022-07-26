@@ -95,6 +95,10 @@ class InfoView extends BaseView {
         'href',
         'https://www.wormbase.org/species/all/anatomy_term/' + node
       );
+
+    this.$container
+      .find('span.cellname')
+      .html(node);
   }
 }
 
