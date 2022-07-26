@@ -12,6 +12,10 @@ class InfoView extends BaseView {
     this.$container = $('#infobar-container');
     this.$toggle = $('#infobar-toggle');
 
+    this.$welcome = $('#welcome');
+    this.$welcomeTitle = this.$welcome.find('h1');
+    this.$welcomeBody = this.$welcome.find('.body');
+
     // CSS transitions cancels out jQuery fade, so separate div is required.
     this.$toggle.click(() => {
       if (this.$container.hasClass('open')) {
@@ -35,6 +39,12 @@ class InfoView extends BaseView {
       } else {
         this.hide();
       }
+    });
+
+
+    $('.open-welcome').click(() => {
+      this.$welcome.show();
+      this.hide();
     });
   }
 
