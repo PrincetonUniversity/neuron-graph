@@ -51,6 +51,7 @@ class InfoView extends BaseView {
   show() {
     this.$container.stop();
     this.$container.fadeIn(200);
+    this.$welcome.fadeOut(200);
   }
 
   hide() {
