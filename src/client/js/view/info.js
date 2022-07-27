@@ -12,6 +12,10 @@ class InfoView extends BaseView {
     this.$container = $('#infobar-container');
     this.$toggle = $('#infobar-toggle');
 
+    this.$welcome = $('#welcome');
+    this.$welcomeTitle = this.$welcome.find('h1');
+    this.$welcomeBody = this.$welcome.find('.body');
+
     // CSS transitions cancels out jQuery fade, so separate div is required.
     this.$toggle.click(() => {
       if (this.$container.hasClass('open')) {
@@ -36,11 +40,18 @@ class InfoView extends BaseView {
         this.hide();
       }
     });
+
+
+    $('.open-welcome').click(() => {
+      this.$welcome.show();
+      this.hide();
+    });
   }
 
   show() {
     this.$container.stop();
     this.$container.fadeIn(200);
+    this.$welcome.fadeOut(200);
   }
 
   hide() {
@@ -85,6 +96,10 @@ class InfoView extends BaseView {
         'href',
         'https://www.wormbase.org/species/all/anatomy_term/' + node
       );
+
+    this.$container
+      .find('span.cellname')
+      .html(node);
   }
 }
 
