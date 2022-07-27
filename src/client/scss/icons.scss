@@ -66,12 +66,14 @@
 }
 .icon-functional::before {
   content: '\ea0b';
+  visibility: hidden;
 }
 .icon-functional-excitatory::before {
   content: '\f178';
 }
 .icon-functional-inhibitory::before {
   content: '\ea0b';
+  visibility: hidden;
 }
 
 /* Popup menu */
