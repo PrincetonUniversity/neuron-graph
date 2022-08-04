@@ -65,27 +65,38 @@ class Welcome {
           [
             'Welcome to <b>FunCoNN (Beta): <u>Fun</u>ctional <u>Co</u>nnectivity on <u>N</u>ema <u>N</u>ode</b>',
             '<p>',
-            'This is an interactive browser of functional connectivity measurements of <i>C. elegans</i> overlaid',
-            'on select connectomics data using the <a href="https://nemanode.org/" target="_blank">Nema Node</a> software.',
+            'A browser of functional connectivity measurements of <i>C. elegans</i> overlaid ' +
+            'on select connectomics data using <a href="https://nemanode.org/" target="_blank">Nema Node</a>.',
             '<p>',
-            'Functional connectivity measurements show the causal direction of information flow, polarity',
-            'and functional strength of neural connections based on optogenetic perturbations and calcium',
-            'imaging. Functional measurements shown in this visualization are from a forthcoming',
-            'manuscript from the <a href="http://leiferlab.princeton.edu/" target="_blank">Leifer Lab</a>: Randi, Sharma, Dvali and Leifer, &#8220Direct measurements',
-            'of functional connectivity in C. elegans reveals contributions from extrasynaptic signaling,&#8221 in',
-            'prep. <b>Only those measured connections with a q-value less than 0.05 are shown.</b> The',
-            'absence of significance does not imply significance of absence.',
+            'Functional connectivity measurements show the causal direction of information flow, polarity ' +
+            'and functional strength of neural connections based on optogenetic perturbations and calcium ' +
+            'imaging. Functional measurements from a forthcoming manuscript from the ' +
+            '<a href="http://leiferlab.princeton.edu/" target="_blank">Leifer Lab</a>: Randi, Sharma, Dvali ' +
+            'and Leifer, &#8220Direct measurements of functional connectivity in C. elegans reveals ' +
+            'contributions from extrasynaptic signaling,&#8221 in prep.',
             '<p>',
-            'Measurements are displayed using <a href="https://nemanode.org/" target="_blank">Nema Node</a>, an open source <a href="https://github.com/zhenlab-ltri/NemaNode" target="_blank">software package</a> described',
-            'in <a href="https://doi.org/10.1038/s41586-021-03778-8" target="_blank">Witvleit et al., 2021</a> from the <a href="https://www.zhenlab.com/" target="_blank">Zhen</a>, <a href="https://scholar.harvard.edu/aravisamuel" target="_blank">Samuel</a>, and <a href="https://lichtmanlab.fas.harvard.edu" target="_blank">Lichtman</a> labs. Select connectomics',
+            '<b>IMPORTANT: Only those measured connections with a q-value less than 0.05 are shown. See ' +
+            'manuscript for additional functional connections. </b> The absence of significance does not ' +
+            'imply significance of absence.',
+            '<p>',
+            'Measurements are displayed using <a href="https://nemanode.org/" target="_blank">Nema Node</a>, ' +
+            'an open source <a href="https://github.com/zhenlab-ltri/NemaNode" target="_blank">software package</a> ' +
+            'described in <a href="https://doi.org/10.1038/s41586-021-03778-8" target="_blank">Witvleit et al., 2021</a> ' + 
+            'from the <a href="https://www.zhenlab.com/" target="_blank">Zhen</a>, ' +
+            '<a href="https://scholar.harvard.edu/aravisamuel" target="_blank">Samuel</a>, and ' +
+            '<a href="https://lichtmanlab.fas.harvard.edu" target="_blank">Lichtman</a> labs. Select connectomics ' +
             'datasets from Witvleit et al, and others are also displayed.',
             '<p>',
-            'This project is in beta and has not yet been peer reviewed. Data and code are released under',
-            'a permissive license at <a href="https://github.com/PrincetonUniversity/neuron-graph" target="_blank">https://github.com/PrincetonUniversity/neuron-graph/</a>',
+            'This project is in beta and has not yet been peer reviewed. Data and code are released under ' +
+            'a permissive license at <a href="https://github.com/PrincetonUniversity/neuron-graph" ' +
+            'target="_blank">https://github.com/PrincetonUniversity/neuron-graph/</a>',
             '<p>',
-            'This fork is developed by Research Computing staff in the <a href="https://lsi.princeton.edu" target="_blank">Lewis-Sigler Institute for Integrative',
-            'Genomics</a> (Robert Leach and Lance Parsons) and the <a href="https://pni.princeton.edu" target="_blank">Princeton Neuroscience Institute</a>',
-            '(Benjamin Singer). Request features or report bugs on <a href="https://github.com/PrincetonUniversity/neuron-graph/issues" target="_blank">Github</a>.'
+            'This fork is developed by Research Computing staff in the ' +
+            '<a href="https://lsi.princeton.edu" target="_blank">Lewis-Sigler Institute for Integrative ' +
+            'Genomics</a> (Robert Leach and Lance Parsons) and the ' +
+            '<a href="https://pni.princeton.edu" target="_blank">Princeton Neuroscience Institute</a> ' +
+            '(Benjamin Singer). Request features or report bugs on ' +
+            '<a href="https://github.com/PrincetonUniversity/neuron-graph/issues" target="_blank">Github</a>.'
           ]
         );
         this.view.help.showWelcome(this.coordinate(), this.position());
