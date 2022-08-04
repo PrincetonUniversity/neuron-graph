@@ -136,9 +136,12 @@ class OptionsView extends BaseView {
       let checked = e.currentTarget.checked;
 
       if (checked) {
+        // save pre-check-all datasets
+        this.selectedBeforeCheckAll = this.getSelectedDatasets();
         $('#set-datasets .bookmark').addClass('selected');
       } else {
-        $('#set-datasets .bookmark').removeClass('selected');
+        // return to pre-check-all datasets
+        this.selectDatasets(this.selectedBeforeCheckAll);
       }
 
       this.emit('setDatasets', this.getSelectedDatasets());
@@ -147,6 +150,11 @@ class OptionsView extends BaseView {
     $('#set-datasets').on('click', '.bookmark', e => {
       let $bookmark = $(e.currentTarget);
       let selectedDatasets = this.getSelectedDatasets();
+
+      // Do not allow deselect if only one dataset is selected.
+      if (selectedDatasets.length == 1 && $bookmark.hasClass('selected')) {
+        return;
+      }
 
       $bookmark.toggleClass('selected');
 
@@ -248,10 +256,14 @@ class OptionsView extends BaseView {
       .find('.sel-placeholder')
       .text($option[0].childNodes[0].nodeValue);
 
-    // Update list of datasets on database change.
+    // Update list of datasets on database change. If no datasets are selected, select all.
     if ($selectbox.attr('id') == 'set-database') {
       $('#set-datasets .bookmark').hide();
       $('#set-datasets .bookmark.' + option).show();
+
+      if (selectedDatasets.length === 0) {
+        $('#set-datasets .bookmark').addClass('selected');
+      }
 
       $('#set-datasets #check-all').prop(
         'checked',
