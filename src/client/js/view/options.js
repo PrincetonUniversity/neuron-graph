@@ -136,9 +136,12 @@ class OptionsView extends BaseView {
       let checked = e.currentTarget.checked;
 
       if (checked) {
+        // save pre-check-all datasets
+        this.selectedBeforeCheckAll = this.getSelectedDatasets();
         $('#set-datasets .bookmark').addClass('selected');
       } else {
-        $('#set-datasets .bookmark:visible:not(:last)').removeClass('selected');
+        // return to pre-check-all datasets
+        this.selectDatasets(this.selectedBeforeCheckAll);
       }
 
       this.emit('setDatasets', this.getSelectedDatasets());
