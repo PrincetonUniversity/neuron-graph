@@ -276,7 +276,9 @@
   display: none;
   background-color: $background;
   position: absolute;
-  width: 560px;
+  width: 50%;
+  max-width: 500px;
+  min-width: 350px;
   color: $text-color;
   z-index: 900;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -296,6 +298,9 @@
     padding: 3px 15px 3px 15px;
     font-size: 13px;
     line-height: 18px;
+  }
+  a {
+    display: inline;
   }
 }
 

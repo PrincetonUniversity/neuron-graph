@@ -278,9 +278,8 @@ class HelpView extends BaseView {
 
     const arrowWidth = 20;
     const distanceToArrow = 35;
-    $welcome.width(640); // to force fit text lines in welcome body
     let containerWidth = $welcome.width();
-    //let containerHeight = $welcome.height();
+    // let containerHeight = $welcome.height();
 
     $welcome.hide();
     // If vertical position is outside viewport, scroll the options sidebar.
