@@ -277,7 +277,7 @@
   background-color: $background;
   position: absolute;
   width: 50%;
-  max-width: 500px;
+  max-width: 750px;
   min-width: 350px;
   color: $text-color;
   z-index: 900;
@@ -292,12 +292,12 @@
   }
   h1 {
     padding: 15px 15px 15px 15px;
-    font-size: 18px;
+    font-size: 1.5em;
   }
   p {
     padding: 3px 15px 3px 15px;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 1em;
+    line-height: 1.5em;
   }
   a {
     display: inline;

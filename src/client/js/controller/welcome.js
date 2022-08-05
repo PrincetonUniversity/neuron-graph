@@ -75,8 +75,9 @@ class Welcome {
             'and Leifer, &#8220Direct measurements of functional connectivity in C. elegans reveals ' +
             'contributions from extrasynaptic signaling,&#8221 in prep.',
             '<p>',
-            '<b>IMPORTANT: Only those measured connections with a q-value less than 0.05 are shown. See ' +
-            'manuscript for additional functional connections. </b> The absence of significance does not ' +
+            '<b><u>IMPORTANT: Only those measured functional connections  are shown for which we have strong ' +
+            'statistical confidence (many observations, large transients, q<0.05). See manuscript for evidence ' +
+            'of additional functional connections.</u></b> The absence of significance does not ' +
             'imply significance of absence.',
             '<p>',
             'Measurements are displayed using <a href="https://nemanode.org/" target="_blank">Nema Node</a>, ' +
