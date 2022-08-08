@@ -18,6 +18,15 @@
       "datatypes": "fc" 
    },
    {
+      "id": "randi_funconn_wildcp",
+      "name": "Randi et al., 2022, Dataset 1 WT (adult)",
+      "type": "complete",
+      "time": 50,
+      "visualTime": 48,
+      "description": "Functional connectivity data (WT complete) <i>Leifer lab, 2022</i>",
+      "datatypes": "fc" 
+   },
+   {
       "id": "white_1986_whole",
       "name": "White et al., 1986 compilation (adult)",
       "type": "complete",

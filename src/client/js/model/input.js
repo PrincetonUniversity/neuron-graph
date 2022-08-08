@@ -136,7 +136,8 @@ ModelPrototype.setInputFromUrlState = function(rawInput) {
           (allInputsNotInDataset.length > 1 ? 'are' : 'is') +
           ' not in the ' +
           this.database +
-          ' datasets.',
+          ' datasets.' +
+          ' Please select complete animal to view this neuron.',
         arr: allInputsNotInDataset
       });
     }
