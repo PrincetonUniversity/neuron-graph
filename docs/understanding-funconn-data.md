@@ -9,7 +9,7 @@ A dataset is associated with connections data, e.g. connections A,B, C are found
 
 - ```name```: name of the dataset
 - ```id```: id of the dataset
-- ```type```: dataset collection. one of 'head', 'tail', 'complete', or 'unc31' (mutant data)
+- ```type```: dataset collection. one of 'head', 'tail', 'complete', or 'unc31' (mutant complete data)
 - ```time```: the age of the specimen in hours e.g. 15
 - ```visual_time```: time to represent visually for the app
 - ```description```: description of the dataset
