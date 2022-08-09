@@ -79,45 +79,7 @@ class CellInfo {
         'VAn',
         'VDn'
       ],
-      unc31: [
-        'ADA',
-        'ADE',
-        'ALA',
-        'AQR',
-        'AVA',
-        'AVB',
-        'AVD',
-        'AVE',
-        'AVF',
-        'AVG',
-        'AVH',
-        'AVJ',
-        'AVK',
-        'AVL',
-        'AVM',
-        'BDU',
-        'DVA',
-        'DVC',
-        'FLP',
-        'HSN',
-        'PLN',
-        'PVC',
-        'PVN',
-        'PVP',
-        'PVQ',
-        'PVR',
-        'PVT',
-        'RID',
-        'RIF',
-        'RIG',
-        'RIP',
-        'RMG',
-        'SDQ',
-        'SIA',
-        'SIB',
-        'SMB',
-        'SMD'  
-      ]
+      unc31: []
     };
 
     this.cellClassLegacy = {};
@@ -154,8 +116,6 @@ class CellInfo {
     if (inhead) {
       this.validNodes['head'].push(cell);
       this.validNodes['head'].push(cls);
-      this.validNodes['unc31'].push(cell);
-      this.validNodes['unc31'].push(cls);
     }
 
     if (intail) {
@@ -166,9 +126,11 @@ class CellInfo {
     if (!cls.startsWith('BWM')) {
       if (cell != 'LEGACYBODYWALLMUSCLES') {
         this.validNodes['complete'].push(cell);
+        this.validNodes['unc31'].push(cell);
       }
 
       this.validNodes['complete'].push(cls);
+      this.validNodes['unc31'].push(cls);
     }
 
     // Set VCn class info manually, as individual neurons are different.
