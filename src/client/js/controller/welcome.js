@@ -72,8 +72,9 @@ class Welcome {
             'and functional strength of neural connections based on optogenetic perturbations and calcium ' +
             'imaging. Functional measurements from a forthcoming manuscript from the ' +
             '<a href="http://leiferlab.princeton.edu/" target="_blank">Leifer Lab</a>: Randi, Sharma, Dvali ' +
-            'and Leifer, &#8220Direct measurements of functional connectivity in C. elegans reveals ' +
-            'contributions from extrasynaptic signaling,&#8221 in prep.',
+            'and Leifer, &#8220A functional connectivity atlas of C. elegans measured by neural activation.&#8221 ' +
+            '<a href="https://doi.org/10.48550/arXiv.2208.04790" target="_blank">arXiv</a>, (2022) ' +
+            '[<a href="https://arxiv.org/pdf/2208.04790" target="_blank">PDF</a>]',
             '<p>',
             '<b><u>IMPORTANT: Only those measured functional connections  are shown for which we have strong ' +
             'statistical confidence (many observations, large transients, q<0.05). See manuscript for evidence ' +
