@@ -459,11 +459,11 @@ class Controller extends EventEmitter {
     model.clear();
 
     // Load parameters or set default values.
-    let database = state['database'] || 'head';
+    let database = state['database'] || 'complete';
     let allDatasets = DataService.getDatasetList(database);
     let datasets = intersection(allDatasets, state['datasets'] || []);
     if (datasets.length === 0) {
-      datasets = (database == 'head') ? ['randi_funconn_wildty'] : allDatasets;
+      datasets = (database == 'complete') ? ['randi_funconn_wildcp'] : allDatasets;
     }
     let nodeColor = state['nodeColor'] || 'type';
     let layout = state['layout'] || 'concentric';
