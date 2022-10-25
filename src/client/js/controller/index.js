@@ -5,6 +5,7 @@ const Tour = require('./tour');
 const Welcome = require('./welcome');
 
 const DataService = require('../data-service');
+const defaultDatasets = require('../default-datasets');
 
 let bindInfoNotificationEvents = ({ model, view }) => {
   view.popup.on('popupDenied', () => {
@@ -463,7 +464,7 @@ class Controller extends EventEmitter {
     let allDatasets = DataService.getDatasetList(database);
     let datasets = intersection(allDatasets, state['datasets'] || []);
     if (datasets.length === 0) {
-      datasets = (database == 'complete') ? ['randi_funconn_wildcp'] : allDatasets;
+      datasets = (database == 'complete') ? defaultDatasets['complete'] : allDatasets;
     }
     let nodeColor = state['nodeColor'] || 'type';
     let layout = state['layout'] || 'concentric';
