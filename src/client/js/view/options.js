@@ -1,7 +1,10 @@
 const $ = require('jquery');
 const BaseView = require('./base-view');
 
+const { intersection } = require('../util');
+
 const DataService = require('../data-service');
+const defaultDatasets = require('../default-datasets');
 
 const SELECT_ELE_ID_TO_EVENT_MAP = {
   'set-database': 'setDatabase',
@@ -248,7 +251,6 @@ class OptionsView extends BaseView {
   selectOption(option) {
     let $option = $('#' + option);
     let $selectbox = $option.closest('.selectbox');
-    let selectedDatasets = this.getSelectedDatasets();
 
     $option.siblings().removeClass('selected');
     $option.addClass('selected');
@@ -261,8 +263,23 @@ class OptionsView extends BaseView {
       $('#set-datasets .bookmark').hide();
       $('#set-datasets .bookmark.' + option).show();
 
+      let allDatasets = DataService.getDatasetList(option);
+      let selectedDatasets = this.getSelectedDatasets();
+      selectedDatasets = intersection(allDatasets, selectedDatasets || []);
+      let selectedDefaultDatasets = intersection(allDatasets, defaultDatasets[option] || []);
+
       if (selectedDatasets.length === 0) {
-        $('#set-datasets .bookmark').addClass('selected');
+        let datasetsToSelect = [];
+        if (selectedDefaultDatasets.length === 0) {
+          // No defaults for the selected database, select all
+          datasetsToSelect = allDatasets;
+        } else {
+          // Select the default datasets for the selected database
+          datasetsToSelect = selectedDefaultDatasets;
+        }
+        for (let i = 0; i < datasetsToSelect.length; i++) {
+          $('#set-datasets #dataset-' + datasetsToSelect[i]).addClass('selected');
+        }
       }
 
       $('#set-datasets #check-all').prop(
