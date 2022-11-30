@@ -1,20 +1,20 @@
 [
    {
-      "id": "randi_funconn_unc31",
-      "name": "Randi et al., 2022, Dataset 2 unc31 (adult)",
-      "type": "unc31",
-      "time": 50,
-      "visualTime": 48,
-      "description": "Functional connectivity data (unc31) <i>Leifer lab, 2022</i>",
-      "datatypes": "fc" 
-   },
-   {
       "id": "randi_funconn_wildty",
       "name": "Randi et al., 2022, Dataset 1 WT (adult)",
       "type": "head",
       "time": 50,
       "visualTime": 48,
       "description": "Functional connectivity data (WT) <i>Leifer lab, 2022</i>",
+      "datatypes": "fc" 
+   },
+   {
+      "id": "randi_funconn_unc31",
+      "name": "Randi et al., 2022, Dataset 2 unc31 (adult)",
+      "type": "unc31",
+      "time": 50,
+      "visualTime": 48,
+      "description": "Functional connectivity data (unc31) <i>Leifer lab, 2022</i>",
       "datatypes": "fc" 
    },
    {
