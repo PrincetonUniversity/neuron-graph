@@ -1,6 +1,22 @@
 [
   
   {
+    "pre": "ADAR",
+    "post": "AWAL",
+    "typ": 4,
+    "syn": [
+      -7
+    ]
+  },
+  {
+    "pre": "ADAR",
+    "post": "RMDVL",
+    "typ": 4,
+    "syn": [
+      -4
+    ]
+  },
+  {
     "pre": "ADFR",
     "post": "AWBR",
     "typ": 4,
@@ -14,6 +30,14 @@
     "typ": 4,
     "syn": [
       55
+    ]
+  },
+  {
+    "pre": "ADLR",
+    "post": "AVAR",
+    "typ": 4,
+    "syn": [
+      9
     ]
   },
   {
@@ -58,6 +82,14 @@
   },
   {
     "pre": "AFDR",
+    "post": "AWBL",
+    "typ": 4,
+    "syn": [
+      6
+    ]
+  },
+  {
+    "pre": "AFDR",
     "post": "AWBR",
     "typ": 4,
     "syn": [
@@ -78,6 +110,22 @@
     "typ": 4,
     "syn": [
       25
+    ]
+  },
+  {
+    "pre": "AIZR",
+    "post": "AS1",
+    "typ": 4,
+    "syn": [
+      1
+    ]
+  },
+  {
+    "pre": "AIZR",
+    "post": "DA1",
+    "typ": 4,
+    "syn": [
+      6
     ]
   },
   {
@@ -106,10 +154,42 @@
   },
   {
     "pre": "AQR",
+    "post": "ASHL",
+    "typ": 4,
+    "syn": [
+      5
+    ]
+  },
+  {
+    "pre": "AQR",
     "post": "ASHR",
     "typ": 4,
     "syn": [
       34
+    ]
+  },
+  {
+    "pre": "AQR",
+    "post": "ASKL",
+    "typ": 4,
+    "syn": [
+      -8
+    ]
+  },
+  {
+    "pre": "AQR",
+    "post": "AWCR",
+    "typ": 4,
+    "syn": [
+      4
+    ]
+  },
+  {
+    "pre": "AQR",
+    "post": "SAADR",
+    "typ": 4,
+    "syn": [
+      5
     ]
   },
   {
@@ -178,6 +258,22 @@
   },
   {
     "pre": "ASHR",
+    "post": "ASER",
+    "typ": 4,
+    "syn": [
+      1
+    ]
+  },
+  {
+    "pre": "ASHR",
+    "post": "DA1",
+    "typ": 4,
+    "syn": [
+      5
+    ]
+  },
+  {
+    "pre": "ASHR",
     "post": "RMDDR",
     "typ": 4,
     "syn": [
@@ -242,6 +338,14 @@
   },
   {
     "pre": "AVDL",
+    "post": "AVEL",
+    "typ": 4,
+    "syn": [
+      -9
+    ]
+  },
+  {
+    "pre": "AVDL",
     "post": "OLQDL",
     "typ": 4,
     "syn": [
@@ -254,6 +358,22 @@
     "typ": 4,
     "syn": [
       22
+    ]
+  },
+  {
+    "pre": "AVDR",
+    "post": "AWAL",
+    "typ": 4,
+    "syn": [
+      2
+    ]
+  },
+  {
+    "pre": "AVDR",
+    "post": "OLQVL",
+    "typ": 4,
+    "syn": [
+      4
     ]
   },
   {
@@ -278,6 +398,14 @@
     "typ": 4,
     "syn": [
       44
+    ]
+  },
+  {
+    "pre": "AVER",
+    "post": "M3R",
+    "typ": 4,
+    "syn": [
+      5
     ]
   },
   {
@@ -394,10 +522,42 @@
   },
   {
     "pre": "AWBL",
+    "post": "AVJR",
+    "typ": 4,
+    "syn": [
+      5
+    ]
+  },
+  {
+    "pre": "AWBL",
     "post": "AWBR",
     "typ": 4,
     "syn": [
       16
+    ]
+  },
+  {
+    "pre": "AWBL",
+    "post": "I3",
+    "typ": 4,
+    "syn": [
+      -8
+    ]
+  },
+  {
+    "pre": "AWBL",
+    "post": "MI",
+    "typ": 4,
+    "syn": [
+      -5
+    ]
+  },
+  {
+    "pre": "AWBL",
+    "post": "OLQDR",
+    "typ": 4,
+    "syn": [
+      -7
     ]
   },
   {
@@ -562,6 +722,14 @@
   },
   {
     "pre": "CEPDL",
+    "post": "RMDDR",
+    "typ": 4,
+    "syn": [
+      -4
+    ]
+  },
+  {
+    "pre": "CEPDL",
     "post": "URXL",
     "typ": 4,
     "syn": [
@@ -590,6 +758,14 @@
     "typ": 4,
     "syn": [
       39
+    ]
+  },
+  {
+    "pre": "DB1",
+    "post": "ASER",
+    "typ": 4,
+    "syn": [
+      -5
     ]
   },
   {
@@ -654,6 +830,14 @@
     "typ": 4,
     "syn": [
       62
+    ]
+  },
+  {
+    "pre": "DB2",
+    "post": "AWAL",
+    "typ": 4,
+    "syn": [
+      7
     ]
   },
   {
@@ -817,6 +1001,14 @@
     ]
   },
   {
+    "pre": "FLPR",
+    "post": "RIVR",
+    "typ": 4,
+    "syn": [
+      -7
+    ]
+  },
+  {
     "pre": "I1L",
     "post": "AFDL",
     "typ": 4,
@@ -834,10 +1026,26 @@
   },
   {
     "pre": "I1L",
+    "post": "AWBR",
+    "typ": 4,
+    "syn": [
+      -8
+    ]
+  },
+  {
+    "pre": "I1L",
     "post": "RMER",
     "typ": 4,
     "syn": [
       21
+    ]
+  },
+  {
+    "pre": "I2L",
+    "post": "ASER",
+    "typ": 4,
+    "syn": [
+      -8
     ]
   },
   {
@@ -854,6 +1062,14 @@
     "typ": 4,
     "syn": [
       44
+    ]
+  },
+  {
+    "pre": "I3",
+    "post": "M1",
+    "typ": 4,
+    "syn": [
+      9
     ]
   },
   {
@@ -938,6 +1154,14 @@
   },
   {
     "pre": "IL1DR",
+    "post": "ASJR",
+    "typ": 4,
+    "syn": [
+      -9
+    ]
+  },
+  {
+    "pre": "IL1DR",
     "post": "AWBR",
     "typ": 4,
     "syn": [
@@ -969,6 +1193,14 @@
     ]
   },
   {
+    "pre": "IL1VR",
+    "post": "OLQDL",
+    "typ": 4,
+    "syn": [
+      -5
+    ]
+  },
+  {
     "pre": "IL2DL",
     "post": "AS1",
     "typ": 4,
@@ -982,6 +1214,14 @@
     "typ": 4,
     "syn": [
       -15
+    ]
+  },
+  {
+    "pre": "IL2DL",
+    "post": "AVER",
+    "typ": 4,
+    "syn": [
+      -6
     ]
   },
   {
@@ -1042,6 +1282,14 @@
   },
   {
     "pre": "IL2VL",
+    "post": "RMDDR",
+    "typ": 4,
+    "syn": [
+      -8
+    ]
+  },
+  {
+    "pre": "IL2VL",
     "post": "RMDL",
     "typ": 4,
     "syn": [
@@ -1062,6 +1310,14 @@
     "typ": 4,
     "syn": [
       -10
+    ]
+  },
+  {
+    "pre": "IL2VR",
+    "post": "RIGR",
+    "typ": 4,
+    "syn": [
+      6
     ]
   },
   {
@@ -1242,6 +1498,14 @@
   },
   {
     "pre": "MI",
+    "post": "AVER",
+    "typ": 4,
+    "syn": [
+      -6
+    ]
+  },
+  {
+    "pre": "MI",
     "post": "I3",
     "typ": 4,
     "syn": [
@@ -1338,6 +1602,14 @@
   },
   {
     "pre": "OLLL",
+    "post": "IL1DR",
+    "typ": 4,
+    "syn": [
+      4
+    ]
+  },
+  {
+    "pre": "OLLL",
     "post": "IL2L",
     "typ": 4,
     "syn": [
@@ -1358,6 +1630,14 @@
     "typ": 4,
     "syn": [
       26
+    ]
+  },
+  {
+    "pre": "OLLL",
+    "post": "RMDL",
+    "typ": 4,
+    "syn": [
+      -9
     ]
   },
   {
@@ -1414,6 +1694,14 @@
     "typ": 4,
     "syn": [
       49
+    ]
+  },
+  {
+    "pre": "OLQVL",
+    "post": "ASGL",
+    "typ": 4,
+    "syn": [
+      -9
     ]
   },
   {
@@ -1505,6 +1793,22 @@
     ]
   },
   {
+    "pre": "RID",
+    "post": "ASGR",
+    "typ": 4,
+    "syn": [
+      3
+    ]
+  },
+  {
+    "pre": "RID",
+    "post": "AWCR",
+    "typ": 4,
+    "syn": [
+      6
+    ]
+  },
+  {
     "pre": "RIH",
     "post": "ASER",
     "typ": 4,
@@ -1538,10 +1842,26 @@
   },
   {
     "pre": "RIPR",
+    "post": "ASER",
+    "typ": 4,
+    "syn": [
+      -6
+    ]
+  },
+  {
+    "pre": "RIPR",
     "post": "AWAL",
     "typ": 4,
     "syn": [
       -11
+    ]
+  },
+  {
+    "pre": "RIPR",
+    "post": "DA1",
+    "typ": 4,
+    "syn": [
+      -9
     ]
   },
   {
@@ -1622,6 +1942,14 @@
     "typ": 4,
     "syn": [
       49
+    ]
+  },
+  {
+    "pre": "RIVR",
+    "post": "RMDR",
+    "typ": 4,
+    "syn": [
+      -3
     ]
   },
   {
@@ -1721,6 +2049,14 @@
     ]
   },
   {
+    "pre": "RMDL",
+    "post": "I3",
+    "typ": 4,
+    "syn": [
+      -6
+    ]
+  },
+  {
     "pre": "RMDR",
     "post": "ASER",
     "typ": 4,
@@ -1802,10 +2138,34 @@
   },
   {
     "pre": "RMEL",
+    "post": "IL1R",
+    "typ": 4,
+    "syn": [
+      6
+    ]
+  },
+  {
+    "pre": "RMEL",
     "post": "M2R",
     "typ": 4,
     "syn": [
       -11
+    ]
+  },
+  {
+    "pre": "RMEL",
+    "post": "M3L",
+    "typ": 4,
+    "syn": [
+      -1
+    ]
+  },
+  {
+    "pre": "RMEL",
+    "post": "OLQDR",
+    "typ": 4,
+    "syn": [
+      8
     ]
   },
   {
@@ -1830,6 +2190,38 @@
     "typ": 4,
     "syn": [
       28
+    ]
+  },
+  {
+    "pre": "RMER",
+    "post": "AFDL",
+    "typ": 4,
+    "syn": [
+      -8
+    ]
+  },
+  {
+    "pre": "RMER",
+    "post": "ASHL",
+    "typ": 4,
+    "syn": [
+      6
+    ]
+  },
+  {
+    "pre": "RMER",
+    "post": "ASHR",
+    "typ": 4,
+    "syn": [
+      -5
+    ]
+  },
+  {
+    "pre": "RMER",
+    "post": "ASKL",
+    "typ": 4,
+    "syn": [
+      -9
     ]
   },
   {
@@ -1878,6 +2270,14 @@
     "typ": 4,
     "syn": [
       30
+    ]
+  },
+  {
+    "pre": "SAADR",
+    "post": "ASGR",
+    "typ": 4,
+    "syn": [
+      5
     ]
   },
   {
@@ -1945,6 +2345,22 @@
     ]
   },
   {
+    "pre": "SAAVL",
+    "post": "URXR",
+    "typ": 4,
+    "syn": [
+      4
+    ]
+  },
+  {
+    "pre": "SAAVR",
+    "post": "ADFL",
+    "typ": 4,
+    "syn": [
+      -1
+    ]
+  },
+  {
     "pre": "SAAVR",
     "post": "AVAR",
     "typ": 4,
@@ -1970,10 +2386,26 @@
   },
   {
     "pre": "SAAVR",
+    "post": "IL1DL",
+    "typ": 4,
+    "syn": [
+      -3
+    ]
+  },
+  {
+    "pre": "SAAVR",
     "post": "IL2L",
     "typ": 4,
     "syn": [
       65
+    ]
+  },
+  {
+    "pre": "SAAVR",
+    "post": "OLLL",
+    "typ": 4,
+    "syn": [
+      -6
     ]
   },
   {
@@ -1998,6 +2430,14 @@
     "typ": 4,
     "syn": [
       68
+    ]
+  },
+  {
+    "pre": "SAAVR",
+    "post": "URYDR",
+    "typ": 4,
+    "syn": [
+      -8
     ]
   },
   {
@@ -2130,6 +2570,14 @@
   },
   {
     "pre": "SMDVR",
+    "post": "ADFL",
+    "typ": 4,
+    "syn": [
+      7
+    ]
+  },
+  {
+    "pre": "SMDVR",
     "post": "AFDR",
     "typ": 4,
     "syn": [
@@ -2257,6 +2705,14 @@
     ]
   },
   {
+    "pre": "URYDR",
+    "post": "ASGL",
+    "typ": 4,
+    "syn": [
+      5
+    ]
+  },
+  {
     "pre": "VA1",
     "post": "AFDR",
     "typ": 4,
@@ -2270,6 +2726,14 @@
     "typ": 4,
     "syn": [
       -12
+    ]
+  },
+  {
+    "pre": "VA1",
+    "post": "AWBR",
+    "typ": 4,
+    "syn": [
+      -9
     ]
   },
   {
@@ -2294,6 +2758,14 @@
     "typ": 4,
     "syn": [
       64
+    ]
+  },
+  {
+    "pre": "VA1",
+    "post": "RMDR",
+    "typ": 4,
+    "syn": [
+      -2
     ]
   },
   {
