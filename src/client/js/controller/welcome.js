@@ -71,10 +71,9 @@ class Welcome {
             'Functional connectivity measurements show the causal direction of information flow, polarity ' +
             'and functional strength of neural connections based on optogenetic perturbations and calcium ' +
             'imaging. Functional measurements from a forthcoming manuscript from the ' +
-            '<a href="http://leiferlab.princeton.edu/" target="_blank">Leifer Lab</a>: Randi, Sharma, Dvali ' +
-            'and Leifer, &#8220A functional connectivity atlas of C. elegans measured by neural activation.&#8221 ' +
-            '<a href="https://doi.org/10.48550/arXiv.2208.04790" target="_blank">arXiv</a>, (2022) ' +
-            '[<a href="https://arxiv.org/pdf/2208.04790" target="_blank">PDF</a>]',
+            '<a href="http://leiferlab.princeton.edu/" target="_blank">Leifer Lab</a>: <a ' +
+            'href="https://www.nature.com/articles/s41586-023-06683-4">Randi, Sharma, Dvali ' +
+            'and Leifer, &#8220A neural signal propagation atlas of Caenorhabditis elegans.&#8221 Nature, (2023)</a>. ' +
             '<p>',
             '<b><u>IMPORTANT: Only those measured functional connections  are shown for which we have strong ' +
             'statistical confidence (many observations, large transients, q<0.05). See manuscript for evidence ' +
@@ -83,7 +82,7 @@ class Welcome {
             '<p>',
             'Measurements are displayed using <a href="https://nemanode.org/" target="_blank">Nema Node</a>, ' +
             'an open source <a href="https://github.com/zhenlab-ltri/NemaNode" target="_blank">software package</a> ' +
-            'described in <a href="https://doi.org/10.1038/s41586-021-03778-8" target="_blank">Witvleit et al., 2021</a> ' + 
+            'described in <a href="https://doi.org/10.1038/s41586-021-03778-8" target="_blank">Witvleit et al., 2021</a> ' +
             'from the <a href="https://www.zhenlab.com/" target="_blank">Zhen</a>, ' +
             '<a href="https://scholar.harvard.edu/aravisamuel" target="_blank">Samuel</a>, and ' +
             '<a href="https://lichtmanlab.fas.harvard.edu" target="_blank">Lichtman</a> labs. Select connectomics ' +
