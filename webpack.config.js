@@ -5,8 +5,7 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const PostCompilePlugin = require('post-compile-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const SRC_DIR = 'src/client';
@@ -73,12 +72,6 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: 'style/[name].[contenthash].css',
       }),
-      new ExtraWatchWebpackPlugin({
-        dirs: [
-          'src/client/scss/',
-          'src/client/image/'
-        ]
-      }),
       new CleanWebpackPlugin(), // clears unused files after build.
       /*new webpack.ProvidePlugin({
         'THREE': 'three'
@@ -125,10 +118,12 @@ module.exports = (env, argv) => {
             {
               loader: 'postcss-loader',
               options: {
-                ident: 'postcss',
-                plugins: [
-                  autoprefixer
-                ]
+		postcssOptions: {
+                  ident: 'postcss',
+                  plugins: [
+                    autoprefixer
+                  ]
+		}
               }
             },
             'sass-loader',
