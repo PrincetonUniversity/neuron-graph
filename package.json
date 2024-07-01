@@ -82,7 +82,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.11.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.6.0",
     "extra-watch-webpack-plugin": "^1.0.3",
     "forever": "^4.0.3",
     "fs-extra": "^11.2.0",
